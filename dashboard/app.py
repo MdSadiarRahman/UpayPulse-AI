@@ -907,7 +907,7 @@ elif selected_page == get_text('nav_ai_chatbot'):
     # Display chat messages from history on app rerun
     for message in st.session_state.messages:
         with st.chat_message(message["role"]):
-            st.markdown(message["content"])
+            st.markdown(message["content"], unsafe_allow_html=True)
 
     import requests
 
@@ -917,7 +917,7 @@ elif selected_page == get_text('nav_ai_chatbot'):
         st.session_state.messages.append({"role": "user", "content": prompt})
         # Display user message in chat message container
         with st.chat_message("user"):
-            st.markdown(prompt)
+            st.markdown(prompt, unsafe_allow_html=True)
 
         # Generate assistant response
         with st.chat_message("assistant"):
@@ -933,7 +933,7 @@ elif selected_page == get_text('nav_ai_chatbot'):
                     # Fallback to local orchestrator if backend is not running
                     response = st.session_state.orchestrator.handle_query(prompt, lang=st.session_state.lang)
                 
-                st.markdown(response)
+                st.markdown(response, unsafe_allow_html=True)
         # Add assistant response to chat history
         st.session_state.messages.append({"role": "assistant", "content": response})
 
