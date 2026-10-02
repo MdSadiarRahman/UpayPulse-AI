@@ -26,6 +26,11 @@ import plotly.graph_objects as go
 import folium
 from streamlit_folium import st_folium
 
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from agents.orchestrator import OrchestratorAgent
+
 # ─────────────────────────────────────────────────────────────────────────────
 # 1. PAGE CONFIGURATION & THEME STYLING
 # ─────────────────────────────────────────────────────────────────────────────
@@ -193,7 +198,7 @@ with st.sidebar:
     st.markdown("### 📑 Navigation")
     selected_page = st.radio(
         "Select Page",
-        ["Overview", "Area Analysis", "Agent Status"],
+        ["Overview", "Area Analysis", "Agent Status", "AI Chatbot"],
         index=0,
         label_visibility="collapsed"
     )
@@ -711,9 +716,86 @@ elif selected_page == "Agent Status":
 
     st.dataframe(table_highest, use_container_width=True, hide_index=True)
 
+    st.markdown("<br><hr style='border-color:#21262d;'><br>", unsafe_allow_html=True)
+    st.markdown("#### 🤖 Deep AI Agent Risk Analysis")
+    st.write("Use the FastAPI backend to fetch real-time liquidity risk predictions & AI explanations.")
+    
+    agent_id_to_check = st.selectbox("Select Agent for AI Analysis", options=agents_full["agent_id"].tolist())
+    if st.button("Run AI Risk Analysis"):
+        with st.spinner("Analyzing with UpayPulse AI Backend..."):
+            try:
+                import requests
+                res = requests.get(f"http://localhost:8000/agent-risk/{agent_id_to_check}", timeout=5)
+                if res.status_code == 200:
+                    risk_data = res.json()
+                    st.success(f"Analysis Complete for {risk_data['agent_id']}")
+                    st.metric(label="Risk Probability", value=f"{risk_data['risk_score']*100:.1f}%")
+                    st.markdown(f"**Predicted Shortage Amount:** ৳{risk_data['shortage_prediction']:,.2f}")
+                    st.info(f"**AI Explanation:** {risk_data['explanation']}")
+                else:
+                    st.error(f"Backend API Error: {res.status_code}")
+            except Exception as e:
+                st.error("Failed to connect to backend. Please ensure the FastAPI server is running (`uvicorn backend.api:app`).")
+
+
 
 # ─────────────────────────────────────────────────────────────────────────────
-# 4. FOOTER
+# PAGE 4: AI CHATBOT
+# ─────────────────────────────────────────────────────────────────────────────
+elif selected_page == "AI Chatbot":
+    st.markdown("""
+    <div class="page-header">
+        <h2 class="page-title">🤖 UpayPulse AI Assistant</h2>
+        <p class="page-subtitle">Ask questions about agent risk, merchant offers, and customer recommendations</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # Initialize chat history
+    if "messages" not in st.session_state:
+        st.session_state.messages = [
+            {"role": "assistant", "content": "Hello! I am the UpayPulse AI Orchestrator. How can I assist you today?\n\nYou can ask me things like:\n- *Which agent needs cash?*\n- *How can a merchant increase sales?*\n- *Where can I get an offer?*"}
+        ]
+
+    # Initialize orchestrator
+    if "orchestrator" not in st.session_state:
+        st.session_state.orchestrator = OrchestratorAgent()
+
+    # Display chat messages from history on app rerun
+    for message in st.session_state.messages:
+        with st.chat_message(message["role"]):
+            st.markdown(message["content"])
+
+    import requests
+
+    # Accept user input
+    if prompt := st.chat_input("Type your question here..."):
+        # Add user message to chat history
+        st.session_state.messages.append({"role": "user", "content": prompt})
+        # Display user message in chat message container
+        with st.chat_message("user"):
+            st.markdown(prompt)
+
+        # Generate assistant response
+        with st.chat_message("assistant"):
+            with st.spinner("Thinking..."):
+                try:
+                    # Try hitting the FastAPI backend
+                    res = requests.post("http://localhost:8000/ask", json={"query": prompt}, timeout=10)
+                    if res.status_code == 200:
+                        response = res.json().get("response", "No response.")
+                    else:
+                        response = f"API Error: {res.status_code}"
+                except requests.exceptions.RequestException:
+                    # Fallback to local orchestrator if backend is not running
+                    response = st.session_state.orchestrator.handle_query(prompt)
+                
+                st.markdown(response)
+        # Add assistant response to chat history
+        st.session_state.messages.append({"role": "assistant", "content": response})
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 5. FOOTER
 # ─────────────────────────────────────────────────────────────────────────────
 st.markdown("""
 <hr style='border-color:#21262d; margin-top:40px;'>
