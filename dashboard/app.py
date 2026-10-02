@@ -722,20 +722,58 @@ elif selected_page == "Agent Status":
     
     agent_id_to_check = st.selectbox("Select Agent for AI Analysis", options=agents_full["agent_id"].tolist())
     if st.button("Run AI Risk Analysis"):
-        with st.spinner("Analyzing with UpayPulse AI Backend..."):
+        with st.spinner("Analyzing with UpayPulse AI Backend and SHAP Explainer..."):
             try:
                 import requests
+                # 1. Fetch Backend API Response
                 res = requests.get(f"http://localhost:8000/agent-risk/{agent_id_to_check}", timeout=5)
                 if res.status_code == 200:
                     risk_data = res.json()
                     st.success(f"Analysis Complete for {risk_data['agent_id']}")
-                    st.metric(label="Risk Probability", value=f"{risk_data['risk_score']*100:.1f}%")
-                    st.markdown(f"**Predicted Shortage Amount:** ৳{risk_data['shortage_prediction']:,.2f}")
-                    st.info(f"**AI Explanation:** {risk_data['explanation']}")
+                    
+                    col1, col2 = st.columns([1, 1])
+                    with col1:
+                        st.metric(label="Risk Probability", value=f"{risk_data['risk_score']*100:.1f}%")
+                        st.markdown(f"**Predicted Shortage Amount:** ৳{risk_data['shortage_prediction']:,.2f}")
+                        st.info(f"**AI Explanation:** {risk_data['explanation']}")
+                        
+                    # 2. Run SHAP Explainability
+                    with col2:
+                        st.markdown("##### 🔬 Model Explainability (SHAP)")
+                        from ml_explainability import RiskPredictorWithSHAP
+                        
+                        # Find the agent index in the dataframe
+                        agent_idx = agents_full[agents_full['agent_id'] == agent_id_to_check].index[0]
+                        
+                        # Initialize and train SHAP explainer
+                        shap_explainer = RiskPredictorWithSHAP()
+                        X, shap_values, base_value = shap_explainer.train_and_explain(agents_full)
+                        
+                        # Get feature impacts for the specific agent
+                        impact_df = shap_explainer.get_agent_explanation(X, shap_values, agent_idx)
+                        
+                        # Plotly Bar Chart for SHAP values
+                        fig_shap = px.bar(
+                            impact_df, 
+                            x="SHAP_Value", 
+                            y="Feature", 
+                            orientation='h',
+                            color="SHAP_Value",
+                            color_continuous_scale=px.colors.diverging.RdBu_r,
+                            title="Top Features Influencing Risk"
+                        )
+                        fig_shap.update_layout(
+                            template="plotly_dark",
+                            paper_bgcolor="rgba(0,0,0,0)",
+                            plot_bgcolor="rgba(0,0,0,0)",
+                            margin=dict(l=20, r=20, t=40, b=20),
+                            yaxis={'categoryorder':'total ascending'}
+                        )
+                        st.plotly_chart(fig_shap, use_container_width=True)
                 else:
                     st.error(f"Backend API Error: {res.status_code}")
             except Exception as e:
-                st.error("Failed to connect to backend. Please ensure the FastAPI server is running (`uvicorn backend.api:app`).")
+                st.error(f"Error during analysis: {e}. Please ensure the FastAPI server is running (`uvicorn backend.api:app`).")
 
 
 
