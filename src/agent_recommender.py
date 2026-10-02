@@ -130,6 +130,8 @@ class AgentRecommender:
         }
 
 if __name__ == "__main__":
+    import sys
+    sys.stdout.reconfigure(encoding='utf-8')
     recommender = AgentRecommender()
     print("Testing recommendation engine:")
     res = recommender.get_recommendations("AGT-0005", top_n=2)
