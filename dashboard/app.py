@@ -784,69 +784,103 @@ elif selected_page == "AI Liquidity Radar":
     agent_id = st.selectbox("Select Agent ID", options=agents_df["agent_id"].tolist(), key="radar_agent")
 
     if st.button("Run Liquidity Prediction"):
-        with st.spinner("Loading ML Model & Analyzing Risk..."):
-            from src.liquidity_predictor import LiquidityPredictor
-            
-            predictor = LiquidityPredictor()
-            res = predictor.predict_risk(agent_id)
-            
-            if "error" in res:
-                st.error(res["error"])
-            else:
-                agent_data = agents_df[agents_df["agent_id"] == agent_id].iloc[0]
-                predicted_demand = agent_data['cash_balance'] + res['expected_shortage_amount']
-                
-                risk_color = "#f85149" if res["risk_level"] == "HIGH" else "#d29922" if res["risk_level"] == "MEDIUM" else "#3fb950"
-                
-                reasons_html = ''.join(f'<li>{r}</li>' for r in res['main_reasons'])
-                
-                st.markdown(f"""
-                <div style="background: linear-gradient(135deg, rgba(22, 27, 34, 0.95) 0%, rgba(13, 17, 23, 0.95) 100%);
-                            border: 1px solid #30363d; border-radius: 12px; padding: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.35);">
-                    <h3 style="margin-top: 0; color: #58a6ff;">Agent: {agent_id}</h3>
-                    <hr style="border-color:#30363d;">
+        with st.spinner("Analyzing Risk with UpayPulse AI Backend..."):
+            import requests
+            try:
+                res = requests.get(f"http://localhost:8000/agent-risk/{agent_id}", timeout=10)
+                if res.status_code == 200:
+                    risk_res = res.json()
                     
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap;">
-                        <div style="min-width: 150px; margin-bottom: 10px;">
-                            <div style="color: #8b949e; font-size: 0.85rem; text-transform: uppercase;">Current Cash</div>
-                            <div style="font-size: 1.5rem; font-weight: bold;">৳{agent_data['cash_balance']:,.0f}</div>
+                    agent_data = agents_df[agents_df["agent_id"] == agent_id].iloc[0]
+                    predicted_demand = agent_data['cash_balance'] + risk_res['shortage_prediction']
+                    risk_color = "#f85149" if risk_res["risk_level"] == "HIGH" else "#d29922" if risk_res["risk_level"] == "MEDIUM" else "#3fb950"
+                    
+                    reasons_html = ''.join(f'<li>{r}</li>' for r in risk_res['explanation']['analysis'].split(' | '))
+                    
+                    shap_reasons = risk_res.get("shap_reasons", [])
+                    shap_html = ""
+                    if shap_reasons:
+                        shap_html = "<ul>" + "".join(f'<li>{r}</li>' for r in shap_reasons) + "</ul>"
+                    else:
+                        shap_html = "<i>No SHAP explainability available.</i>"
+                    
+                    st.markdown(f"""
+                    <div style="background: linear-gradient(135deg, rgba(22, 27, 34, 0.95) 0%, rgba(13, 17, 23, 0.95) 100%);
+                                border: 1px solid #30363d; border-radius: 12px; padding: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.35);">
+                        <h3 style="margin-top: 0; color: #58a6ff;">Agent: {agent_id}</h3>
+                        <hr style="border-color:#30363d;">
+                        
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap;">
+                            <div style="min-width: 150px; margin-bottom: 10px;">
+                                <div style="color: #8b949e; font-size: 0.85rem; text-transform: uppercase;">Current Cash</div>
+                                <div style="font-size: 1.5rem; font-weight: bold;">৳{agent_data['cash_balance']:,.0f}</div>
+                            </div>
+                            <div style="min-width: 150px; margin-bottom: 10px;">
+                                <div style="color: #8b949e; font-size: 0.85rem; text-transform: uppercase;">Risk Level</div>
+                                <div style="font-size: 1.5rem; font-weight: bold; color: {risk_color};">{risk_res['risk_level']}</div>
+                            </div>
+                            <div style="min-width: 150px; margin-bottom: 10px;">
+                                <div style="color: #8b949e; font-size: 0.85rem; text-transform: uppercase;">Probability</div>
+                                <div style="font-size: 1.5rem; font-weight: bold; color: {risk_color};">{risk_res['risk_score']*100:.1f}%</div>
+                            </div>
+                            <div style="min-width: 150px; margin-bottom: 10px;">
+                                <div style="color: #8b949e; font-size: 0.85rem; text-transform: uppercase;">Expected Shortage</div>
+                                <div style="font-size: 1.5rem; font-weight: bold; color: #f85149;">৳{risk_res['shortage_prediction']:,.0f}</div>
+                            </div>
                         </div>
-                        <div style="min-width: 150px; margin-bottom: 10px;">
-                            <div style="color: #8b949e; font-size: 0.85rem; text-transform: uppercase;">Predicted Demand</div>
-                            <div style="font-size: 1.5rem; font-weight: bold;">৳{predicted_demand:,.0f}</div>
-                        </div>
-                        <div style="min-width: 150px; margin-bottom: 10px;">
-                            <div style="color: #8b949e; font-size: 0.85rem; text-transform: uppercase;">Risk Level</div>
-                            <div style="font-size: 1.5rem; font-weight: bold; color: {risk_color};">{res['risk_level']}</div>
+                        
+                        <hr style="border-color:#30363d;">
+                        <div style="display: flex; gap: 20px;">
+                            <div style="flex: 1;">
+                                <div style="color: #8b949e; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 8px;">Main Reasons</div>
+                                <ul style="margin: 0; padding-left: 20px; line-height: 1.6;">
+                                    {reasons_html}
+                                </ul>
+                            </div>
+                            <div style="flex: 1;">
+                                <div style="color: #8b949e; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 8px;">SHAP Feature Explanation (Why risk is high?)</div>
+                                {shap_html}
+                            </div>
                         </div>
                     </div>
+                    """, unsafe_allow_html=True)
                     
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap;">
-                        <div style="min-width: 150px; margin-bottom: 10px;">
-                            <div style="color: #8b949e; font-size: 0.85rem; text-transform: uppercase;">Probability</div>
-                            <div style="font-size: 1.5rem; font-weight: bold; color: {risk_color};">{res['risk_probability']*100:.1f}%</div>
-                        </div>
-                        <div style="min-width: 150px; margin-bottom: 10px;">
-                            <div style="color: #8b949e; font-size: 0.85rem; text-transform: uppercase;">Expected Shortage</div>
-                            <div style="font-size: 1.5rem; font-weight: bold; color: #f85149;">৳{res['expected_shortage_amount']:,.0f}</div>
-                        </div>
-                        <div style="min-width: 150px; margin-bottom: 10px;"></div>
-                    </div>
+                    st.markdown("<br>", unsafe_allow_html=True)
+                    st.markdown("### 🤝 Recommended Liquidity Partners")
                     
-                    <hr style="border-color:#30363d;">
-                    <div style="margin-bottom: 15px;">
-                        <div style="color: #8b949e; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 8px;">Reasons</div>
-                        <ul style="margin: 0; padding-left: 20px; line-height: 1.6;">
-                            {reasons_html}
-                        </ul>
-                    </div>
-                    
-                    <div style="background: rgba(88, 166, 255, 0.1); border-left: 4px solid #58a6ff; padding: 12px 16px; border-radius: 4px;">
-                        <div style="color: #58a6ff; font-weight: bold; margin-bottom: 4px;">💡 Recommendation</div>
-                        Find nearby liquidity partner
-                    </div>
-                </div>
-                """, unsafe_allow_html=True)
+                    partners_res = requests.get(f"http://localhost:8000/liquidity-partners/{agent_id}", timeout=10)
+                    if partners_res.status_code == 200:
+                        recs = partners_res.json().get("recommended_agents", [])
+                        if recs:
+                            df_recs = pd.DataFrame(recs)
+                            # Rename columns for display
+                            df_display = df_recs.rename(columns={
+                                "partner_id": "Partner Agent ID",
+                                "distance_km": "Distance (km)",
+                                "available_liquidity": "Available Cash (৳)",
+                                "rating": "Reliability (Out of 5)",
+                                "explanation": "Recommendation Reason"
+                            })
+                            # Keep only the requested columns
+                            df_display = df_display[["Partner Agent ID", "Distance (km)", "Available Cash (৳)", "Reliability (Out of 5)", "Recommendation Reason"]]
+                            st.dataframe(df_display, use_container_width=True, hide_index=True)
+                            
+                            best_partner = recs[0]["partner_id"]
+                            st.markdown(f"""
+                            <div style="background: rgba(88, 166, 255, 0.1); border-left: 4px solid #58a6ff; padding: 16px; border-radius: 4px; margin-top: 10px;">
+                                <div style="color: #58a6ff; font-weight: bold; font-size: 1.1rem; margin-bottom: 4px;">Recommended Action:</div>
+                                Request liquidity support from {best_partner}
+                            </div>
+                            """, unsafe_allow_html=True)
+                        else:
+                            st.info("No nearby partners found with sufficient liquidity.")
+                    else:
+                        st.error(f"Failed to fetch liquidity partners. API Status: {partners_res.status_code}")
+                        
+                else:
+                    st.error(f"Backend API Error: {res.status_code}")
+            except Exception as e:
+                st.error(f"Failed to connect to API: {str(e)}")
 
 
 # ─────────────────────────────────────────────────────────────────────────────
