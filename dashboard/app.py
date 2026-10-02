@@ -890,7 +890,7 @@ elif selected_page == get_text('nav_ai_chatbot'):
             with st.spinner("Thinking..."):
                 try:
                     # Try hitting the FastAPI backend
-                    res = requests.post("http://localhost:8000/ask", json={"query": prompt, "lang": st.session_state.lang}, timeout=10)
+                    res = requests.post("http://localhost:8000/chat", json={"query": prompt, "lang": st.session_state.lang}, timeout=10)
                     if res.status_code == 200:
                         response = res.json().get("response", "No response.")
                     else:
