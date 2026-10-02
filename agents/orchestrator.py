@@ -1,82 +1,96 @@
 import sys
-# Make sure we can import from the agents folder if this is run directly
 import os
+
+# Ensure we can import from src
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from agents.risk_agent import RiskAgent
-from agents.customer_agent import CustomerAssistanceAgent
-from agents.merchant_agent import MerchantGrowthAgent
+from src.liquidity_predictor import LiquidityPredictor
+from src.merchant_engine import MerchantGrowthEngine
+from src.customer_offer import CustomerOfferEngine
 
 class OrchestratorAgent:
     """
     AI Orchestrator Agent for UpayPulse AI.
     
     Receives user queries and intelligently routes them to the correct 
-    specialized agent (Risk, Customer, or Merchant).
+    specialized agent (Risk, Customer, or Merchant) engine.
     """
 
     def __init__(self):
-        self.risk_agent = RiskAgent()
-        self.customer_agent = CustomerAssistanceAgent()
-        self.merchant_agent = MerchantGrowthAgent()
+        self.risk_engine = LiquidityPredictor()
+        self.merchant_engine = MerchantGrowthEngine()
+        self.customer_engine = CustomerOfferEngine()
         
     def determine_intent(self, query: str) -> str:
         """
         Simple intent detection based on keywords. 
-        In a production system, this could be an LLM call or advanced NLP.
         """
         query_lower = query.lower()
         
         # Risk / Liquidity Intent
-        if any(word in query_lower for word in ["cash", "shortage", "risk", "rebalance", "liquidity", "agent", "টাকা কম", "টাকা"]):
+        if any(word in query_lower for word in ["cash", "shortage", "risk", "rebalance", "liquidity", "agent", "টাকা কম", "টাকা", "ঝুঁকি"]):
             return "risk"
             
         # Merchant Growth Intent
-        elif any(word in query_lower for word in ["merchant", "increase sales", "business", "growth", "মার্চেন্ট", "বিক্রি"]):
+        elif any(word in query_lower for word in ["merchant", "increase sales", "business", "growth", "মার্চেন্ট", "বিক্রি", "shop", "দোকান"]):
             return "merchant"
             
         # Customer Assistance Intent
-        elif any(word in query_lower for word in ["offer", "discount", "where", "buy", "customer", "অফার"]):
+        elif any(word in query_lower for word in ["offer", "discount", "where", "buy", "customer", "অফার", "ডিসকাউন্ট"]):
             return "customer"
             
         else:
             return "unknown"
 
     def handle_query(self, query: str, lang: str = "en") -> str:
-        """
-        Routes the query to the appropriate agent, executes it, and returns the combined answer.
-        The lang parameter determines if the response should be in English (en) or Bangla (bn).
-        """
         intent = self.determine_intent(query)
         
         if intent == "risk":
-            # Mock risk context for example
-            agent_id = "Agent A102"
-            prob = 82
-            if lang == "bn":
-                response = f"{agent_id} এর টাকা সংকটের ঝুঁকি বেশি।\nসম্ভাবনা: {prob}%"
-            else:
-                response = f"{agent_id} has high liquidity shortage risk.\nProbability: {prob}%"
-            
-            return f"Routed to: Risk Agent\n\n{response}"
+            # Call LiquidityPredictor (using AGT-0435 as default for example queries)
+            agent_id = "AGT-0435"
+            try:
+                res = self.risk_engine.predict_risk(agent_id)
+                if "error" in res:
+                    return res["error"]
+                prob = int(res['risk_probability'] * 100)
+                
+                if lang == "bn":
+                    return f"Routed to: Risk Agent\n\n{agent_id} এর liquidity risk বেশি।\n\nRisk:\n{prob}%\n\nRecommendation:\nNearby agent থেকে liquidity support নেওয়া উচিত।"
+                else:
+                    return f"Routed to: Risk Agent\n\nAgent {agent_id} has high liquidity risk.\n\nRisk:\n{prob}%\n\nRecommendation:\nYou should get liquidity support from a nearby agent."
+            except Exception as e:
+                return f"Risk Engine Error: {str(e)}"
             
         elif intent == "merchant":
-            # Mock merchant context
-            if lang == "bn":
-                response = "MRC-001 মার্চেন্টের জন্য সুপারিশ: সপ্তাহান্তে ১০% ডিসকাউন্ট অফার দিন। এতে বিক্রি বাড়বে।"
-            else:
-                response = "Recommendation for MRC-001: Offer 10% discount on weekends to increase sales."
-            
-            return f"Routed to: Merchant Agent\n\n{response}"
+            # Call Merchant Engine (using MRC-0001 as default)
+            merchant_id = "MRC-0001"
+            try:
+                res = self.merchant_engine.generate_recommendation(merchant_id)
+                if "error" in res:
+                    return res["error"]
+                rec = res['recommendation']
+                
+                if lang == "bn":
+                    return f"Routed to: Merchant Agent\n\nMerchant:\n{merchant_id}\n\nRecommendation:\n\nOffer:\n{rec['offer']}\n\nReason:\n{rec['reason']}\n\nExpected:\n{rec['expected_impact']}"
+                else:
+                    return f"Routed to: Merchant Agent\n\nMerchant:\n{merchant_id}\n\nRecommendation:\n\nOffer:\n{rec['offer']}\n\nReason:\n{rec['reason']}\n\nExpected:\n{rec['expected_impact']}"
+            except Exception as e:
+                return f"Merchant Engine Error: {str(e)}"
             
         elif intent == "customer":
-            # Mock customer context
-            if lang == "bn":
-                response = "KFC (গুলশান)-এ একটি অফার আছে। ক্যাশ-আউটের ঝামেলা এড়িয়ে সরাসরি পে করুন আর ১০% ক্যাশব্যাক পান!"
-            else:
-                response = "There is an offer at KFC (Gulshan). Avoid cash-out hassle, pay directly and get 10% cashback!"
-            
-            return f"Routed to: Customer Agent\n\n{response}"
+            # Call Customer Engine (using dummy location data)
+            try:
+                res = self.customer_engine.generate_offer("CUST-001", 23.79, 90.41, preferred_category="Pharmacy")
+                if "error" in res:
+                    return res["error"]
+                rec = res['recommended_merchant']
+                
+                if lang == "bn":
+                    return f"Routed to: Customer Agent\n\nNearby offer:\n{rec['merchant_id']} ({rec['category']})\n\nDistance:\n{rec['distance']}\n\nOffer:\n{rec['offer']}\n\nReason:\n{rec['reason']}"
+                else:
+                    return f"Routed to: Customer Agent\n\nNearby offer:\n{rec['merchant_id']} ({rec['category']})\n\nDistance:\n{rec['distance']}\n\nOffer:\n{rec['offer']}\n\nReason:\n{rec['reason']}"
+            except Exception as e:
+                return f"Customer Engine Error: {str(e)}"
             
         else:
             if lang == "bn":
@@ -84,21 +98,17 @@ class OrchestratorAgent:
             else:
                 return "I am sorry, I couldn't understand your request. Please ask about agent cash shortages, merchant sales, or customer offers."
 
-
 if __name__ == "__main__":
-    # Ensure stdout handles unicode/Bengali characters
     sys.stdout.reconfigure(encoding='utf-8')
-    
     orchestrator = OrchestratorAgent()
-    
     queries = [
-        "Which agent needs cash?",
-        "Where can I get offer?",
-        "How can merchant increase sales?"
+        ("Which agent needs cash?", "en"),
+        ("How can my shop increase sales?", "en"),
+        ("Where can I get discount?", "en"),
+        ("কোন এজেন্টের টাকা কম?", "bn")
     ]
-    
-    for q in queries:
+    for q, l in queries:
         print(f"User Question: \"{q}\"")
         print("-" * 40)
-        print(orchestrator.handle_query(q))
+        print(orchestrator.handle_query(q, lang=l))
         print("=" * 60, "\n")
