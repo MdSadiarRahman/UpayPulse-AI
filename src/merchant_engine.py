@@ -21,26 +21,28 @@ class MerchantGrowthEngine:
         daily_txns = merchant['daily_transactions']
         
         # Base recommendations by category
+        # NOTE: ৳ (Taka, U+09F3) is encoded as HTML entity &#2547; so it renders
+        # correctly when these strings are embedded inside Streamlit HTML templates.
         if "Pharmacy" in category or "Healthcare" in category:
-            offer_type = "৳30 discount on ৳500 payment"
+            offer_type = "&#2547;30 discount on &#2547;500 payment"
             best_time = "5 PM - 8 PM"
-            target_segment = "Regular Patients & Elderly"
+            target_segment = "Regular Patients &amp; Elderly"
             reason = "Low afternoon transactions. High nearby healthcare activity in the evening."
             impact = f"+{int(daily_txns * 0.15)} transactions"
         elif "Restaurant" in category or "Fast Food" in category:
-            offer_type = "10% Cashback on ৳300+ bill"
-            best_time = "1 PM - 3 PM (Lunch) & 7 PM - 10 PM (Dinner)"
-            target_segment = "Students & Young Professionals"
+            offer_type = "10% Cashback on &#2547;300+ bill"
+            best_time = "1 PM - 3 PM (Lunch) &amp; 7 PM - 10 PM (Dinner)"
+            target_segment = "Students &amp; Young Professionals"
             reason = "Capitalize on peak meal times with aggressive cashback to beat local competition."
             impact = f"+{int(daily_txns * 0.25)} transactions"
         elif "Grocery" in category or "Supermarket" in category:
-            offer_type = "5% Cashback on ৳1000+ basket"
+            offer_type = "5% Cashback on &#2547;1000+ basket"
             best_time = "10 AM - 1 PM"
-            target_segment = "Families & Housemakers"
+            target_segment = "Families &amp; Housemakers"
             reason = "Encourage bulk weekly purchases during off-peak morning hours."
             impact = f"+{int(daily_txns * 0.20)} transactions"
         else:
-            offer_type = "৳20 Cashback on minimum ৳200 spend"
+            offer_type = "&#2547;20 Cashback on minimum &#2547;200 spend"
             best_time = "4 PM - 7 PM"
             target_segment = "General Shoppers"
             reason = "Boost overall engagement in average shopping hours."

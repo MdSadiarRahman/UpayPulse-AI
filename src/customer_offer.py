@@ -55,22 +55,24 @@ class CustomerOfferEngine:
         distance_m = int(best_merchant['distance_km'] * 1000)
         
         # Offer logic based on category and spending patterns
+        # NOTE: ৳ (Taka, U+09F3) is encoded as HTML entity &#2547; so it renders
+        # correctly when embedded inside Streamlit HTML templates.
         if "Pharmacy" in category or "Healthcare" in category:
-            offer_type = "৳25 discount on medicine purchase"
+            offer_type = "&#2547;25 discount on medicine purchase"
             reason = "Customer frequently purchases medicine."
-            expected_benefit = "Improved customer retention & health engagement."
+            expected_benefit = "Improved customer retention &amp; health engagement."
         elif "Restaurant" in category or "Fast Food" in category:
-            offer_type = "Free delivery or 10% off on orders over ৳300"
+            offer_type = "Free delivery or 10% off on orders over &#2547;300"
             reason = "Customer orders food during peak hours."
-            expected_benefit = "Higher order volume & cart value."
+            expected_benefit = "Higher order volume &amp; cart value."
         elif "Grocery" in category or "Supermarket" in category:
             offer_type = "10% Cashback on weekly groceries"
             reason = "Customer has consistent weekly grocery spend pattern."
-            expected_benefit = "Increased basket size & loyal spending."
+            expected_benefit = "Increased basket size &amp; loyal spending."
         else:
             offer_type = "5% Cashback on next transaction"
             reason = "General engagement strategy based on proximity."
-            expected_benefit = "Increased general platform usage & discovery."
+            expected_benefit = "Increased general platform usage &amp; discovery."
             
         return {
             "customer_id": customer_id,
