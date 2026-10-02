@@ -856,13 +856,14 @@ elif selected_page == "AI Liquidity Radar":
                             # Rename columns for display
                             df_display = df_recs.rename(columns={
                                 "partner_id": "Partner Agent ID",
+                                "score": "Partner Score",
                                 "distance_km": "Distance (km)",
                                 "available_liquidity": "Available Cash (৳)",
                                 "rating": "Reliability (Out of 5)",
                                 "explanation": "Recommendation Reason"
                             })
                             # Keep only the requested columns
-                            df_display = df_display[["Partner Agent ID", "Distance (km)", "Available Cash (৳)", "Reliability (Out of 5)", "Recommendation Reason"]]
+                            df_display = df_display[["Partner Agent ID", "Partner Score", "Distance (km)", "Available Cash (৳)", "Reliability (Out of 5)", "Recommendation Reason"]]
                             st.dataframe(df_display, use_container_width=True, hide_index=True)
                             
                             best_partner = recs[0]["partner_id"]
