@@ -1,54 +1,108 @@
-class RiskAgent:
-    def process(self, input_data):
-        return f"[Risk Agent] Evaluated liquidity risk for {input_data}"
+import sys
+# Make sure we can import from the agents folder if this is run directly
+import os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-class MerchantAgent:
-    def process(self, input_data):
-        return f"[Merchant Agent] Generated offers for {input_data}"
-
-class CustomerAgent:
-    def process(self, input_data):
-        return f"[Customer Agent] Analyzed behavior for {input_data}"
-
-class MLModels:
-    def predict(self, model_type, data):
-        return f"[ML Model] Running {model_type} prediction on {data}"
-
-class Database:
-    def query(self, query_str):
-        return f"[Database] Executing: {query_str}"
+from agents.risk_agent import RiskAgent
+from agents.customer_agent import CustomerAssistanceAgent
+from agents.merchant_agent import MerchantGrowthAgent
 
 class OrchestratorAgent:
+    """
+    AI Orchestrator Agent for UpayPulse AI.
+    
+    Receives user queries and intelligently routes them to the correct 
+    specialized agent (Risk, Customer, or Merchant).
+    """
+
     def __init__(self):
         self.risk_agent = RiskAgent()
-        self.merchant_agent = MerchantAgent()
-        self.customer_agent = CustomerAgent()
-        self.ml_models = MLModels()
-        self.db = Database()
-
-    def handle_request(self, user_request, target="risk"):
-        print(f"User Request: {user_request}")
+        self.customer_agent = CustomerAssistanceAgent()
+        self.merchant_agent = MerchantGrowthAgent()
         
-        # 1. Fetch data
-        db_data = self.db.query(f"SELECT * FROM {target}_data")
+    def determine_intent(self, query: str) -> str:
+        """
+        Simple intent detection based on keywords. 
+        In a production system, this could be an LLM call or advanced NLP.
+        """
+        query_lower = query.lower()
         
-        # 2. ML Prediction (Simulated)
-        ml_prediction = self.ml_models.predict(target, db_data)
-        
-        # 3. Route to specific Agent
-        if target == "risk":
-            response = self.risk_agent.process(ml_prediction)
-        elif target == "merchant":
-            response = self.merchant_agent.process(ml_prediction)
-        elif target == "customer":
-            response = self.customer_agent.process(ml_prediction)
-        else:
-            response = "Unknown request type."
+        # Risk / Liquidity Intent
+        if any(word in query_lower for word in ["cash", "shortage", "risk", "rebalance", "liquidity", "agent"]):
+            return "risk"
             
-        print(f"Final Output: {response}\n")
-        return response
+        # Merchant Growth Intent
+        elif any(word in query_lower for word in ["merchant", "increase sales", "business", "growth"]):
+            return "merchant"
+            
+        # Customer Assistance Intent
+        elif any(word in query_lower for word in ["offer", "discount", "where", "buy", "customer"]):
+            return "customer"
+            
+        else:
+            return "unknown"
+
+    def handle_query(self, query: str) -> str:
+        """
+        Routes the query to the appropriate agent, executes it, and returns the combined answer.
+        """
+        intent = self.determine_intent(query)
+        
+        if intent == "risk":
+            # Call Risk Agent with some mock context
+            mock_input = {
+                "agent_id": "AGT-0005",
+                "cash_balance": 35000.0,
+                "risk_probability": 0.82,
+                "nearby_agents": [{"agent_id": "AGT-0217", "distance_km": 0.65, "surplus": 292500}]
+            }
+            summary = self.risk_agent.analyze_risk(**mock_input)
+            response = self.risk_agent.format_summary(summary)
+            return f"Routed to: Risk Agent\n\n{response}"
+            
+        elif intent == "merchant":
+            # Call Merchant Agent with mock context
+            strategy = self.merchant_agent.generate_growth_strategy(
+                merchant_id="MRC-001",
+                sales_history={"avg_ticket_size": 450, "peak_days": "Weekends"},
+                customer_activity={"frequent_buyers_age_group": "18-25"},
+                local_demand={"trend": "high_cash_out"}
+            )
+            response = self.merchant_agent.format_strategy(strategy)
+            return f"Routed to: Merchant Agent\n\n{response}"
+            
+        elif intent == "customer":
+            # Call Customer Agent with mock context
+            mock_merchants = [{"merchant_id": "MRC-001", "name": "KFC", "category": "Restaurant & Fast Food", "area": "Gulshan", "distance_km": 0.8}]
+            mock_offers = [{"merchant_id": "MRC-001", "discount": "10%", "benefit_text": "ক্যাশ-আউটের ঝামেলা এড়িয়ে সরাসরি পে করুন আর ১০% ক্যাশব্যাক পান"}]
+            
+            response = self.customer_agent.get_recommendation(
+                has_location_consent=True,
+                customer_location_zone="Gulshan",
+                customer_category_interest="Restaurant & Fast Food",
+                merchant_data=mock_merchants,
+                offer_data=mock_offers
+            )
+            return f"Routed to: Customer Agent\n\n{response}"
+            
+        else:
+            return "I am sorry, I couldn't understand your request. Please ask about agent cash shortages, merchant sales, or customer offers."
+
 
 if __name__ == "__main__":
+    # Ensure stdout handles unicode/Bengali characters
+    sys.stdout.reconfigure(encoding='utf-8')
+    
     orchestrator = OrchestratorAgent()
-    orchestrator.handle_request("Check Agent AGT-005 liquidity risk", target="risk")
-    orchestrator.handle_request("Give me offers for Merchant MRC-02", target="merchant")
+    
+    queries = [
+        "Which agent needs cash?",
+        "Where can I get offer?",
+        "How can merchant increase sales?"
+    ]
+    
+    for q in queries:
+        print(f"User Question: \"{q}\"")
+        print("-" * 40)
+        print(orchestrator.handle_query(q))
+        print("=" * 60, "\n")
