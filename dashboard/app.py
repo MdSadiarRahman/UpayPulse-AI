@@ -210,7 +210,7 @@ with st.sidebar:
         st.rerun()
 
     st.markdown(f"### {get_text('nav_title')}")
-    page_options = [get_text('nav_overview'), get_text('nav_area_analysis'), get_text('nav_agent_status'), get_text('nav_ai_chatbot')]
+    page_options = [get_text('nav_overview'), get_text('nav_area_analysis'), get_text('nav_agent_status'), "AI Liquidity Radar", get_text('nav_ai_chatbot')]
     selected_page = st.radio(
         "Select Page",
         page_options,
@@ -793,7 +793,86 @@ elif selected_page == get_text('nav_agent_status'):
 
 
 # ─────────────────────────────────────────────────────────────────────────────
-# PAGE 4: AI CHATBOT
+# PAGE 4: AI LIQUIDITY RADAR
+# ─────────────────────────────────────────────────────────────────────────────
+elif selected_page == "AI Liquidity Radar":
+    st.markdown("""
+    <div class="page-header">
+        <h2 class="page-title">🎯 AI Liquidity Radar</h2>
+        <p class="page-subtitle">Predict real-time agent cash shortage risks using Advanced Machine Learning</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+    agent_id = st.selectbox("Select Agent ID", options=agents_df["agent_id"].tolist(), key="radar_agent")
+
+    if st.button("Run Liquidity Prediction"):
+        with st.spinner("Loading ML Model & Analyzing Risk..."):
+            from src.liquidity_predictor import LiquidityPredictor
+            
+            predictor = LiquidityPredictor()
+            res = predictor.predict_risk(agent_id)
+            
+            if "error" in res:
+                st.error(res["error"])
+            else:
+                agent_data = agents_df[agents_df["agent_id"] == agent_id].iloc[0]
+                predicted_demand = agent_data['cash_balance'] + res['expected_shortage_amount']
+                
+                risk_color = "#f85149" if res["risk_level"] == "HIGH" else "#d29922" if res["risk_level"] == "MEDIUM" else "#3fb950"
+                
+                reasons_html = ''.join(f'<li>{r}</li>' for r in res['main_reasons'])
+                
+                st.markdown(f"""
+                <div style="background: linear-gradient(135deg, rgba(22, 27, 34, 0.95) 0%, rgba(13, 17, 23, 0.95) 100%);
+                            border: 1px solid #30363d; border-radius: 12px; padding: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.35);">
+                    <h3 style="margin-top: 0; color: #58a6ff;">Agent: {agent_id}</h3>
+                    <hr style="border-color:#30363d;">
+                    
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap;">
+                        <div style="min-width: 150px; margin-bottom: 10px;">
+                            <div style="color: #8b949e; font-size: 0.85rem; text-transform: uppercase;">Current Cash</div>
+                            <div style="font-size: 1.5rem; font-weight: bold;">৳{agent_data['cash_balance']:,.0f}</div>
+                        </div>
+                        <div style="min-width: 150px; margin-bottom: 10px;">
+                            <div style="color: #8b949e; font-size: 0.85rem; text-transform: uppercase;">Predicted Demand</div>
+                            <div style="font-size: 1.5rem; font-weight: bold;">৳{predicted_demand:,.0f}</div>
+                        </div>
+                        <div style="min-width: 150px; margin-bottom: 10px;">
+                            <div style="color: #8b949e; font-size: 0.85rem; text-transform: uppercase;">Risk Level</div>
+                            <div style="font-size: 1.5rem; font-weight: bold; color: {risk_color};">{res['risk_level']}</div>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap;">
+                        <div style="min-width: 150px; margin-bottom: 10px;">
+                            <div style="color: #8b949e; font-size: 0.85rem; text-transform: uppercase;">Probability</div>
+                            <div style="font-size: 1.5rem; font-weight: bold; color: {risk_color};">{res['risk_probability']*100:.1f}%</div>
+                        </div>
+                        <div style="min-width: 150px; margin-bottom: 10px;">
+                            <div style="color: #8b949e; font-size: 0.85rem; text-transform: uppercase;">Expected Shortage</div>
+                            <div style="font-size: 1.5rem; font-weight: bold; color: #f85149;">৳{res['expected_shortage_amount']:,.0f}</div>
+                        </div>
+                        <div style="min-width: 150px; margin-bottom: 10px;"></div>
+                    </div>
+                    
+                    <hr style="border-color:#30363d;">
+                    <div style="margin-bottom: 15px;">
+                        <div style="color: #8b949e; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 8px;">Reasons</div>
+                        <ul style="margin: 0; padding-left: 20px; line-height: 1.6;">
+                            {reasons_html}
+                        </ul>
+                    </div>
+                    
+                    <div style="background: rgba(88, 166, 255, 0.1); border-left: 4px solid #58a6ff; padding: 12px 16px; border-radius: 4px;">
+                        <div style="color: #58a6ff; font-weight: bold; margin-bottom: 4px;">💡 Recommendation</div>
+                        Find nearby liquidity partner
+                    </div>
+                </div>
+                """, unsafe_allow_html=True)
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# PAGE 5: AI CHATBOT
 # ─────────────────────────────────────────────────────────────────────────────
 elif selected_page == get_text('nav_ai_chatbot'):
     st.markdown(f"""
