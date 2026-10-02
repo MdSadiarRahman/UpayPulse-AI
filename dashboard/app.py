@@ -777,7 +777,7 @@ elif active_page_key == "area_analysis":
             tooltip=f"Merchant: {row['merchant_id']} ({row['category']})"
         ).add_to(m)
 
-    st_folium(m, width="100%", height=500, returned_objects=[])
+    st_folium(m, use_container_width=True, height=500, returned_objects=[])
 
     st.markdown("<br>", unsafe_allow_html=True)
 
@@ -1116,115 +1116,162 @@ elif active_page_key == "agent_status":
 # ─────────────────────────────────────────────────────────────────────────────
 # PAGE 4: 🎯 AI LIQUIDITY RADAR (MISSION CONTROL)
 # ─────────────────────────────────────────────────────────────────────────────
-elif selected_page == get_text('nav_ai_liquidity_radar'):
+elif active_page_key == "liquidity_radar":
     st.markdown(f"""
-    <div class="page-header">
-        <h2 class="page-title">🎯 {get_text('nav_ai_liquidity_radar')}</h2>
-        <p class="page-subtitle">{get_text('ai_liquidity_radar_subtitle')}</p>
+    <div class="page-banner">
+        <div>
+            <h1 class="page-banner-title">🎯 {get_text('nav_ai_liquidity_radar')}</h1>
+            <p class="page-banner-subtitle">{get_text('ai_liquidity_radar_subtitle')}</p>
+        </div>
+        <div>
+            <span class="badge-tag badge-danger" style="animation: pulse 2s infinite;">RADAR ARMED</span>
+        </div>
     </div>
     """, unsafe_allow_html=True)
 
     agent_id = st.selectbox(get_text('radar_select_agent'), options=agents_df["agent_id"].tolist(), key="radar_agent")
 
-    if st.button(get_text('radar_run_prediction')):
+    if st.button(get_text('radar_run_prediction'), type="primary", use_container_width=True):
         with st.spinner(get_text('radar_analyzing')):
-            import requests
+            risk_res = None
             try:
-                res = requests.get(f"http://localhost:8000/agent-risk/{agent_id}", timeout=10)
+                import requests
+                res = requests.get(f"http://localhost:8000/agent-risk/{agent_id}", timeout=3)
                 if res.status_code == 200:
                     risk_res = res.json()
-                    
-                    agent_data = agents_df[agents_df["agent_id"] == agent_id].iloc[0]
-                    predicted_demand = agent_data['cash_balance'] + risk_res['shortage_prediction']
-                    risk_color = "#f85149" if risk_res["risk_level"] == "HIGH" else "#d29922" if risk_res["risk_level"] == "MEDIUM" else "#3fb950"
-                    
-                    reasons_html = ''.join(f'<li>{r}</li>' for r in risk_res['explanation']['analysis'].split(' | '))
-                    
-                    shap_reasons = risk_res.get("shap_reasons", [])
-                    shap_html = ""
-                    if shap_reasons:
-                        shap_html = "<ul>" + "".join(f'<li>{r}</li>' for r in shap_reasons) + "</ul>"
-                    else:
-                        shap_html = f"<i>{get_text('radar_no_shap')}</i>"
-                    
-                    st.markdown(f"""
-                    <div style="background: linear-gradient(135deg, rgba(22, 27, 34, 0.95) 0%, rgba(13, 17, 23, 0.95) 100%);
-                                border: 1px solid #30363d; border-radius: 12px; padding: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.35);">
-                        <h3 style="margin-top: 0; color: #58a6ff;">{get_text('radar_agent_label')}: {agent_id}</h3>
-                        <hr style="border-color:#30363d;">
-                        
-                        <div style="display: flex; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap;">
-                            <div style="min-width: 150px; margin-bottom: 10px;">
-                                <div style="color: #8b949e; font-size: 0.85rem; text-transform: uppercase;">{get_text('radar_current_cash')}</div>
-                                <div style="font-size: 1.5rem; font-weight: bold;">৳{agent_data['cash_balance']:,.0f}</div>
-                            </div>
-                            <div style="min-width: 150px; margin-bottom: 10px;">
-                                <div style="color: #8b949e; font-size: 0.85rem; text-transform: uppercase;">{get_text('radar_risk_level')}</div>
-                                <div style="font-size: 1.5rem; font-weight: bold; color: {risk_color};">{risk_res['risk_level']}</div>
-                            </div>
-                            <div style="min-width: 150px; margin-bottom: 10px;">
-                                <div style="color: #8b949e; font-size: 0.85rem; text-transform: uppercase;">{get_text('radar_probability')}</div>
-                                <div style="font-size: 1.5rem; font-weight: bold; color: {risk_color};">{risk_res['risk_score']*100:.1f}%</div>
-                            </div>
-                            <div style="min-width: 150px; margin-bottom: 10px;">
-                                <div style="color: #8b949e; font-size: 0.85rem; text-transform: uppercase;">{get_text('radar_expected_shortage')}</div>
-                                <div style="font-size: 1.5rem; font-weight: bold; color: #f85149;">৳{risk_res['shortage_prediction']:,.0f}</div>
-                            </div>
+            except Exception:
+                pass
+
+            # Fallback to local liquidity predictor if backend is not running
+            if not risk_res:
+                local_res = st.session_state.liquidity_predictor.predict_risk(agent_id)
+                if "error" not in local_res:
+                    risk_res = {
+                        "agent_id": local_res["agent_id"],
+                        "risk_level": local_res["risk_level"],
+                        "risk_score": local_res["risk_probability"],
+                        "shortage_prediction": local_res["expected_shortage_amount"],
+                        "explanation": {"analysis": " | ".join(local_res["main_reasons"])},
+                        "shap_reasons": local_res.get("shap_reasons", [])
+                    }
+
+            if risk_res and "risk_level" in risk_res:
+                agent_data = agents_df[agents_df["agent_id"] == agent_id].iloc[0]
+                risk_color = "#f43f5e" if risk_res["risk_level"] == "HIGH" else "#f59e0b" if risk_res["risk_level"] == "MEDIUM" else "#10b981"
+
+                reasons_html = ''.join(f'<li>{r}</li>' for r in risk_res['explanation']['analysis'].split(' | '))
+
+                shap_reasons = risk_res.get("shap_reasons", [])
+                if shap_reasons:
+                    shap_html = "<ul style='margin:0; padding-left:20px; line-height:1.6;'>" + "".join(f'<li>{r}</li>' for r in shap_reasons) + "</ul>"
+                else:
+                    shap_html = f"<i>{get_text('radar_no_shap')}</i>"
+
+                st.markdown(f"""
+                <div style="background: linear-gradient(135deg, rgba(20, 29, 47, 0.95) 0%, rgba(12, 18, 31, 0.95) 100%);
+                            border: 1px solid rgba(255, 255, 255, 0.08); border-top: 3px solid {risk_color}; border-radius: 14px; padding: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.4);">
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <h3 style="margin: 0; color: #38bdf8;">{get_text('radar_agent_label')}: {agent_id}</h3>
+                        <span class="badge-tag {'badge-danger' if risk_res['risk_level'] == 'HIGH' else 'badge-warning' if risk_res['risk_level'] == 'MEDIUM' else 'badge-safe'}">
+                            {risk_res['risk_level']} RISK
+                        </span>
+                    </div>
+                    <hr style="border-color:rgba(255,255,255,0.08); margin: 16px 0;">
+
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap; gap: 14px;">
+                        <div style="min-width: 140px; background: rgba(255,255,255,0.02); padding: 12px 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
+                            <div style="color: #64748b; font-size: 0.75rem; text-transform: uppercase;">{get_text('radar_current_cash')}</div>
+                            <div style="font-size: 1.45rem; font-weight: 800; font-family: 'JetBrains Mono', monospace; color: #f1f5f9; margin-top:2px;">৳{agent_data['cash_balance']:,.0f}</div>
                         </div>
-                        
-                        <hr style="border-color:#30363d;">
-                        <div style="display: flex; gap: 20px;">
-                            <div style="flex: 1;">
-                                <div style="color: #8b949e; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 8px;">{get_text('radar_main_reasons')}</div>
-                                <ul style="margin: 0; padding-left: 20px; line-height: 1.6;">
-                                    {reasons_html}
-                                </ul>
-                            </div>
-                            <div style="flex: 1;">
-                                <div style="color: #8b949e; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 8px;">{get_text('radar_shap_explanation')}</div>
+                        <div style="min-width: 140px; background: rgba(255,255,255,0.02); padding: 12px 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
+                            <div style="color: #64748b; font-size: 0.75rem; text-transform: uppercase;">{get_text('radar_risk_level')}</div>
+                            <div style="font-size: 1.45rem; font-weight: 800; color: {risk_color}; margin-top:2px;">{risk_res['risk_level']}</div>
+                        </div>
+                        <div style="min-width: 140px; background: rgba(255,255,255,0.02); padding: 12px 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
+                            <div style="color: #64748b; font-size: 0.75rem; text-transform: uppercase;">{get_text('radar_probability')}</div>
+                            <div style="font-size: 1.45rem; font-weight: 800; font-family: 'JetBrains Mono', monospace; color: {risk_color}; margin-top:2px;">{risk_res['risk_score']*100:.1f}%</div>
+                        </div>
+                        <div style="min-width: 140px; background: rgba(255,255,255,0.02); padding: 12px 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
+                            <div style="color: #64748b; font-size: 0.75rem; text-transform: uppercase;">{get_text('radar_expected_shortage')}</div>
+                            <div style="font-size: 1.45rem; font-weight: 800; font-family: 'JetBrains Mono', monospace; color: #f43f5e; margin-top:2px;">৳{risk_res['shortage_prediction']:,.0f}</div>
+                        </div>
+                    </div>
+
+                    <hr style="border-color:rgba(255,255,255,0.08); margin: 16px 0;">
+                    <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                        <div style="flex: 1; min-width: 280px;">
+                            <div style="color: #cbd5e1; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 8px; font-weight: 700;">{get_text('radar_main_reasons')}</div>
+                            <ul style="margin: 0; padding-left: 20px; line-height: 1.6; color: #94a3b8; font-size: 0.88rem;">
+                                {reasons_html}
+                            </ul>
+                        </div>
+                        <div style="flex: 1; min-width: 280px;">
+                            <div style="color: #cbd5e1; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 8px; font-weight: 700;">{get_text('radar_shap_explanation')}</div>
+                            <div style="color: #94a3b8; font-size: 0.88rem;">
                                 {shap_html}
                             </div>
                         </div>
                     </div>
-                    """, unsafe_allow_html=True)
-                    
-                    st.markdown("<br>", unsafe_allow_html=True)
-                    st.markdown(f"### 🤝 {get_text('radar_recommended_partners')}")
-                    
-                    partners_res = requests.get(f"http://localhost:8000/liquidity-partners/{agent_id}", timeout=10)
+                </div>
+                """, unsafe_allow_html=True)
+
+                st.markdown("<br>", unsafe_allow_html=True)
+                st.markdown(f"### 🤝 {get_text('radar_recommended_partners')}")
+
+                recs = []
+                try:
+                    import requests
+                    partners_res = requests.get(f"http://localhost:8000/liquidity-partners/{agent_id}", timeout=3)
                     if partners_res.status_code == 200:
                         recs = partners_res.json().get("recommended_agents", [])
-                        if recs:
-                            df_recs = pd.DataFrame(recs)
-                            # Rename columns for display
-                            df_display = df_recs.rename(columns={
-                                "partner_id": get_text('radar_partner_agent_id'),
-                                "score": get_text('radar_partner_score'),
-                                "distance_km": get_text('radar_distance'),
-                                "available_liquidity": get_text('radar_available_cash'),
-                                "rating": get_text('radar_reliability'),
-                                "explanation": get_text('radar_recommendation_reason')
+                except Exception:
+                    pass
+
+                # Fallback to local recommender
+                if not recs:
+                    local_p = st.session_state.agent_recommender.get_recommendations(agent_id, top_n=5)
+                    if "recommendations" in local_p:
+                        for r in local_p["recommendations"]:
+                            recs.append({
+                                "partner_id": r["agent_id"],
+                                "score": r["score"],
+                                "distance_km": r["distance_km"],
+                                "available_liquidity": r["cash_balance"],
+                                "rating": r["rating"],
+                                "explanation": r["explanation"]
                             })
-                            # Keep only the requested columns
-                            df_display = df_display[[get_text('radar_partner_agent_id'), get_text('radar_partner_score'), get_text('radar_distance'), get_text('radar_available_cash'), get_text('radar_reliability'), get_text('radar_recommendation_reason')]]
-                            st.dataframe(df_display, use_container_width=True, hide_index=True)
-                            
-                            best_partner = recs[0]["partner_id"]
-                            st.markdown(f"""
-                            <div style="background: rgba(88, 166, 255, 0.1); border-left: 4px solid #58a6ff; padding: 16px; border-radius: 4px; margin-top: 10px;">
-                                <div style="color: #58a6ff; font-weight: bold; font-size: 1.1rem; margin-bottom: 4px;">{get_text('radar_recommended_action')}</div>
-                                {get_text('radar_request_support')} {best_partner}
-                            </div>
-                            """, unsafe_allow_html=True)
-                        else:
-                            st.info(get_text('radar_no_partners'))
-                    else:
-                        st.error(f"{get_text('radar_failed_fetch')} {partners_res.status_code}")
-                        
+
+                if recs:
+                    df_recs = pd.DataFrame(recs)
+                    df_display = df_recs.rename(columns={
+                        "partner_id": get_text('radar_partner_agent_id'),
+                        "score": get_text('radar_partner_score'),
+                        "distance_km": get_text('radar_distance'),
+                        "available_liquidity": get_text('radar_available_cash'),
+                        "rating": get_text('radar_reliability'),
+                        "explanation": get_text('radar_recommendation_reason')
+                    })
+                    df_display = df_display[[
+                        get_text('radar_partner_agent_id'),
+                        get_text('radar_partner_score'),
+                        get_text('radar_distance'),
+                        get_text('radar_available_cash'),
+                        get_text('radar_reliability'),
+                        get_text('radar_recommendation_reason')
+                    ]]
+                    st.dataframe(df_display, use_container_width=True, hide_index=True)
+
+                    best_partner = recs[0]["partner_id"]
+                    st.markdown(f"""
+                    <div style="background: rgba(14, 165, 233, 0.1); border-left: 4px solid #0ea5e9; padding: 16px; border-radius: 8px; margin-top: 14px;">
+                        <div style="color: #38bdf8; font-weight: bold; font-size: 1.05rem; margin-bottom: 4px;">{get_text('radar_recommended_action')}</div>
+                        <span style="color: #e2e8f0; font-size: 0.90rem;">{get_text('radar_request_support')} <b style="color:#38bdf8;">{best_partner}</b></span>
+                    </div>
+                    """, unsafe_allow_html=True)
                 else:
-                    st.error(f"{get_text('radar_backend_error')} {res.status_code}")
-            except Exception as e:
-                st.error(f"{get_text('radar_connection_failed')} {str(e)}")
+                    st.info(get_text('radar_no_partners'))
+            else:
+                st.error("Failed to generate liquidity prediction for this agent.")
 
 
 # ─────────────────────────────────────────────────────────────────────────────
