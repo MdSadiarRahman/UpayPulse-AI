@@ -1,0 +1,1001 @@
+merchant_id,category,area,latitude,longitude,daily_transactions
+MRC-0001,Pharmacy & Healthcare,Gulshan,23.788033,90.405056,94
+MRC-0002,Restaurant & Fast Food,Mirpur,23.807059,90.362807,296
+MRC-0003,Grocery & Superstore,Mohammadpur,23.770891,90.353036,187
+MRC-0004,Pharmacy & Healthcare,Sadar Road,22.707871,90.355439,135
+MRC-0005,Grocery & Superstore,Banani,23.79636,90.399027,103
+MRC-0006,Fashion & Apparel,Amberkhana,24.90411,91.866968,94
+MRC-0007,Grocery & Superstore,Banani,23.799611,90.414684,187
+MRC-0008,Stationery & Bookstore,Motijheel C/A,23.740631,90.406,75
+MRC-0009,Fashion & Apparel,Narayanganj Chasara,23.62461,90.494619,69
+MRC-0010,Home Decor & Hardware,Gazipur Chowrasta,24.000241,90.418967,65
+MRC-0011,Pharmacy & Healthcare,Shibbari More,22.814216,89.545017,123
+MRC-0012,Fashion & Apparel,Mohammadpur,23.768951,90.358529,41
+MRC-0013,Fashion & Apparel,Shibbari More,22.818199,89.551332,53
+MRC-0014,Restaurant & Fast Food,Dinajpur Sadar,25.624374,88.637385,173
+MRC-0015,Grocery & Superstore,Agrabad C/A,22.326715,91.818223,114
+MRC-0016,Pharmacy & Healthcare,Dhanmondi,23.739389,90.378421,56
+MRC-0017,Restaurant & Fast Food,Halishahar,22.344572,91.776197,196
+MRC-0018,Fashion & Apparel,Shaheb Bazar,24.360405,88.605256,42
+MRC-0019,Electronics & Gadgets,Farmgate,23.759038,90.385844,62
+MRC-0020,Restaurant & Fast Food,Uttara,23.875773,90.377914,165
+MRC-0021,Grocery & Superstore,Uttara,23.874491,90.389507,230
+MRC-0022,Fashion & Apparel,Zindabazar,24.898279,91.877026,46
+MRC-0023,Grocery & Superstore,Gulshan,23.791561,90.410506,234
+MRC-0024,Restaurant & Fast Food,Badda,23.78072,90.432521,312
+MRC-0025,Home Decor & Hardware,Uttara,23.877521,90.388068,34
+MRC-0026,Fashion & Apparel,Mirpur,23.808014,90.367207,41
+MRC-0027,Fashion & Apparel,Kandirpar,23.457482,91.178743,42
+MRC-0028,Stationery & Bookstore,Mirpur,23.810219,90.366567,46
+MRC-0029,Telecom & Mobile Accessories,Narayanganj Chasara,23.624651,90.504426,67
+MRC-0030,Restaurant & Fast Food,GEC Circle,22.364585,91.81688,252
+MRC-0031,Fashion & Apparel,Mirpur,23.806109,90.362828,31
+MRC-0032,Electronics & Gadgets,Banani,23.794736,90.404491,38
+MRC-0033,Pharmacy & Healthcare,Nasirabad,22.371599,91.817109,127
+MRC-0034,Electronics & Gadgets,Old Dhaka (Chawkbazar),23.714097,90.390179,35
+MRC-0035,Pharmacy & Healthcare,Mirpur,23.809379,90.366159,84
+MRC-0036,Pharmacy & Healthcare,Uttara,23.873597,90.381167,151
+MRC-0037,Pharmacy & Healthcare,Kandirpar,23.463528,91.178554,90
+MRC-0038,Pharmacy & Healthcare,Savar Bus Stand,23.858599,90.26826,171
+MRC-0039,Grocery & Superstore,Farmgate,23.755082,90.382828,248
+MRC-0040,Home Decor & Hardware,Gulshan,23.789914,90.411499,33
+MRC-0041,Electronics & Gadgets,Jahaj Company More,25.747641,89.245381,18
+MRC-0042,Fashion & Apparel,Motijheel C/A,23.731133,90.420458,40
+MRC-0043,Telecom & Mobile Accessories,Nasirabad,22.370543,91.818968,67
+MRC-0044,Restaurant & Fast Food,Jahaj Company More,25.742262,89.251591,236
+MRC-0045,Home Decor & Hardware,Uttara,23.882261,90.37861,42
+MRC-0046,Home Decor & Hardware,Kandirpar,23.457364,91.176582,68
+MRC-0047,Grocery & Superstore,Shaheb Bazar,24.367304,88.594562,250
+MRC-0048,Pharmacy & Healthcare,Jatrabari,23.708321,90.434265,171
+MRC-0049,Telecom & Mobile Accessories,Agrabad C/A,22.324898,91.821896,88
+MRC-0050,Grocery & Superstore,Mirpur,23.807291,90.36873,107
+MRC-0051,Telecom & Mobile Accessories,Agrabad C/A,22.331264,91.811818,69
+MRC-0052,Pharmacy & Healthcare,Old Dhaka (Chawkbazar),23.70878,90.398907,135
+MRC-0053,Restaurant & Fast Food,Motijheel C/A,23.730926,90.414181,142
+MRC-0054,Restaurant & Fast Food,Agrabad C/A,22.332084,91.80789,154
+MRC-0055,Fashion & Apparel,Mohammadpur,23.765723,90.358172,81
+MRC-0056,Grocery & Superstore,Agrabad C/A,22.328465,91.821987,168
+MRC-0057,Pharmacy & Healthcare,Zindabazar,24.891334,91.868232,118
+MRC-0058,Telecom & Mobile Accessories,Mirpur,23.810743,90.368338,135
+MRC-0059,Grocery & Superstore,Uttara,23.87299,90.377051,83
+MRC-0060,Fashion & Apparel,Motijheel C/A,23.737245,90.410947,46
+MRC-0061,Electronics & Gadgets,Mohammadpur,23.772204,90.366914,45
+MRC-0062,Grocery & Superstore,Agrabad C/A,22.327785,91.814027,156
+MRC-0063,Home Decor & Hardware,Old Dhaka (Chawkbazar),23.717209,90.396376,42
+MRC-0064,Grocery & Superstore,Narayanganj Chasara,23.625092,90.489967,163
+MRC-0065,Pharmacy & Healthcare,Kandirpar,23.454261,91.176393,89
+MRC-0066,Fashion & Apparel,Uttara,23.873073,90.381729,39
+MRC-0067,Restaurant & Fast Food,GEC Circle,22.359827,91.825117,219
+MRC-0068,Grocery & Superstore,Old Dhaka (Chawkbazar),23.715374,90.397896,194
+MRC-0069,Electronics & Gadgets,Mohammadpur,23.767419,90.354353,20
+MRC-0070,Electronics & Gadgets,Jatrabari,23.706873,90.431803,29
+MRC-0071,Restaurant & Fast Food,Gulshan,23.787021,90.405107,305
+MRC-0072,Restaurant & Fast Food,Mirpur,23.805612,90.363103,323
+MRC-0073,Restaurant & Fast Food,Mirpur,23.803219,90.365182,135
+MRC-0074,Grocery & Superstore,Gazipur Chowrasta,24.003913,90.426363,192
+MRC-0075,Restaurant & Fast Food,Uttara,23.872612,90.384322,193
+MRC-0076,Stationery & Bookstore,Dhanmondi,23.746041,90.370868,55
+MRC-0077,Pharmacy & Healthcare,Dhanmondi,23.745326,90.372312,148
+MRC-0078,Fashion & Apparel,Nasirabad,22.367369,91.815857,51
+MRC-0079,Pharmacy & Healthcare,Narayanganj Chasara,23.623996,90.492194,164
+MRC-0080,Grocery & Superstore,Zindabazar,24.89204,91.870716,150
+MRC-0081,Pharmacy & Healthcare,Narayanganj Chasara,23.630007,90.498851,99
+MRC-0082,Fashion & Apparel,Dhanmondi,23.746399,90.378884,52
+MRC-0083,Pharmacy & Healthcare,Agrabad C/A,22.326359,91.817842,72
+MRC-0084,Pharmacy & Healthcare,Badda,23.771491,90.427575,120
+MRC-0085,Fashion & Apparel,Sadar Road,22.697186,90.353458,58
+MRC-0086,Grocery & Superstore,Uttara,23.880179,90.378885,113
+MRC-0087,Electronics & Gadgets,Gulshan,23.790228,90.407408,18
+MRC-0088,Fashion & Apparel,Zindabazar,24.892541,91.868273,48
+MRC-0089,Electronics & Gadgets,Mohammadpur,23.763636,90.353952,40
+MRC-0090,Grocery & Superstore,Old Dhaka (Chawkbazar),23.709569,90.39981,302
+MRC-0091,Pharmacy & Healthcare,Agrabad C/A,22.32552,91.805228,159
+MRC-0092,Fashion & Apparel,Uttara,23.870498,90.378797,92
+MRC-0093,Grocery & Superstore,Old Dhaka (Chawkbazar),23.711357,90.397795,173
+MRC-0094,Grocery & Superstore,Halishahar,22.348861,91.795959,305
+MRC-0095,Pharmacy & Healthcare,Jatrabari,23.710884,90.44128,93
+MRC-0096,Restaurant & Fast Food,Jahaj Company More,25.740164,89.24679,120
+MRC-0097,Restaurant & Fast Food,Amberkhana,24.904707,91.869301,102
+MRC-0098,Home Decor & Hardware,Mirpur,23.800104,90.372188,38
+MRC-0099,Restaurant & Fast Food,Halishahar,22.34692,91.782835,234
+MRC-0100,Fashion & Apparel,Gazipur Chowrasta,24.000918,90.416994,55
+MRC-0101,Telecom & Mobile Accessories,Gulshan,23.795466,90.407797,86
+MRC-0102,Pharmacy & Healthcare,Mirpur,23.804661,90.369904,108
+MRC-0103,Restaurant & Fast Food,GEC Circle,22.35452,91.81864,158
+MRC-0104,Grocery & Superstore,Zindabazar,24.892568,91.868839,102
+MRC-0105,Fashion & Apparel,Banani,23.791651,90.404349,64
+MRC-0106,Fashion & Apparel,Agrabad C/A,22.321767,91.805739,42
+MRC-0107,Restaurant & Fast Food,Motijheel C/A,23.733983,90.416168,277
+MRC-0108,Restaurant & Fast Food,Uttara,23.872403,90.379914,132
+MRC-0109,Fashion & Apparel,Gulshan,23.793058,90.411687,60
+MRC-0110,Stationery & Bookstore,Gulshan,23.793493,90.403619,53
+MRC-0111,Pharmacy & Healthcare,Old Dhaka (Chawkbazar),23.715189,90.402246,172
+MRC-0112,Home Decor & Hardware,Gulshan,23.794169,90.404256,35
+MRC-0113,Restaurant & Fast Food,Jatrabari,23.714339,90.430954,212
+MRC-0114,Pharmacy & Healthcare,Zindabazar,24.893682,91.859639,129
+MRC-0115,Pharmacy & Healthcare,Mohammadpur,23.765597,90.359224,150
+MRC-0116,Restaurant & Fast Food,Gazipur Chowrasta,23.998591,90.419596,334
+MRC-0117,Stationery & Bookstore,Zindabazar,24.89169,91.870434,43
+MRC-0118,Stationery & Bookstore,Zindabazar,24.892413,91.870726,68
+MRC-0119,Fashion & Apparel,Mirpur,23.807778,90.368099,29
+MRC-0120,Grocery & Superstore,Jatrabari,23.711174,90.435761,273
+MRC-0121,Electronics & Gadgets,Old Dhaka (Chawkbazar),23.714546,90.390566,36
+MRC-0122,Fashion & Apparel,Gulshan,23.798265,90.41805,82
+MRC-0123,Electronics & Gadgets,Uttara,23.876722,90.375829,25
+MRC-0124,Restaurant & Fast Food,Gulshan,23.793282,90.401427,303
+MRC-0125,Restaurant & Fast Food,Uttara,23.877907,90.387035,178
+MRC-0126,Electronics & Gadgets,Shibbari More,22.821821,89.552532,28
+MRC-0127,Restaurant & Fast Food,Jahaj Company More,25.739547,89.24928,173
+MRC-0128,Electronics & Gadgets,Zindabazar,24.890141,91.876595,39
+MRC-0129,Grocery & Superstore,Zindabazar,24.894624,91.867376,233
+MRC-0130,Pharmacy & Healthcare,Dinajpur Sadar,25.630038,88.638729,170
+MRC-0131,Fashion & Apparel,Uttara,23.878437,90.37631,74
+MRC-0132,Fashion & Apparel,Jatrabari,23.711965,90.437718,77
+MRC-0133,Fashion & Apparel,Motijheel C/A,23.732109,90.420845,35
+MRC-0134,Telecom & Mobile Accessories,Uttara,23.873426,90.382517,127
+MRC-0135,Pharmacy & Healthcare,Banani,23.798272,90.406783,170
+MRC-0136,Home Decor & Hardware,Amberkhana,24.901852,91.870913,53
+MRC-0137,Telecom & Mobile Accessories,Gazipur Chowrasta,24.003532,90.424201,81
+MRC-0138,Restaurant & Fast Food,Agrabad C/A,22.324461,91.812711,191
+MRC-0139,Restaurant & Fast Food,Shaheb Bazar,24.364369,88.619281,147
+MRC-0140,Restaurant & Fast Food,Uttara,23.879068,90.379131,183
+MRC-0141,Telecom & Mobile Accessories,Kandirpar,23.46571,91.180621,92
+MRC-0142,Pharmacy & Healthcare,Farmgate,23.756705,90.395666,66
+MRC-0143,Pharmacy & Healthcare,Motijheel C/A,23.738523,90.419545,35
+MRC-0144,Restaurant & Fast Food,Shibbari More,22.817834,89.536693,175
+MRC-0145,Home Decor & Hardware,Mirpur,23.807809,90.364617,49
+MRC-0146,Pharmacy & Healthcare,Amberkhana,24.909508,91.874431,158
+MRC-0147,Restaurant & Fast Food,Banani,23.789497,90.398861,222
+MRC-0148,Electronics & Gadgets,Jatrabari,23.70935,90.436105,30
+MRC-0149,Pharmacy & Healthcare,Gazipur Chowrasta,24.003992,90.414678,190
+MRC-0150,Pharmacy & Healthcare,Motijheel C/A,23.725364,90.41612,130
+MRC-0151,Pharmacy & Healthcare,Gazipur Chowrasta,23.998198,90.419952,156
+MRC-0152,Pharmacy & Healthcare,Shibbari More,22.825607,89.547671,37
+MRC-0153,Grocery & Superstore,Motijheel C/A,23.737022,90.416277,219
+MRC-0154,Pharmacy & Healthcare,Gulshan,23.794451,90.412065,119
+MRC-0155,Telecom & Mobile Accessories,Old Dhaka (Chawkbazar),23.715184,90.390386,156
+MRC-0156,Restaurant & Fast Food,Gulshan,23.788676,90.406942,150
+MRC-0157,Restaurant & Fast Food,Savar Bus Stand,23.85243,90.260123,103
+MRC-0158,Grocery & Superstore,GEC Circle,22.357092,91.816522,232
+MRC-0159,Restaurant & Fast Food,Dhanmondi,23.749242,90.379283,162
+MRC-0160,Grocery & Superstore,Zindabazar,24.884969,91.871381,157
+MRC-0161,Pharmacy & Healthcare,Narayanganj Chasara,23.620817,90.49886,164
+MRC-0162,Pharmacy & Healthcare,Old Dhaka (Chawkbazar),23.720772,90.398562,191
+MRC-0163,Home Decor & Hardware,Dhanmondi,23.745373,90.371802,31
+MRC-0164,Fashion & Apparel,Banani,23.794209,90.407052,42
+MRC-0165,Grocery & Superstore,Old Dhaka (Chawkbazar),23.718749,90.395722,149
+MRC-0166,Electronics & Gadgets,Halishahar,22.353275,91.781775,59
+MRC-0167,Electronics & Gadgets,Dhanmondi,23.753658,90.376701,52
+MRC-0168,Home Decor & Hardware,Agrabad C/A,22.334272,91.82052,68
+MRC-0169,Restaurant & Fast Food,Dhanmondi,23.743654,90.37559,94
+MRC-0170,Electronics & Gadgets,Badda,23.780212,90.430633,27
+MRC-0171,Grocery & Superstore,Mirpur,23.803603,90.363093,90
+MRC-0172,Restaurant & Fast Food,Nasirabad,22.382602,91.826887,145
+MRC-0173,Grocery & Superstore,Banani,23.798692,90.405842,169
+MRC-0174,Pharmacy & Healthcare,Zindabazar,24.89673,91.873022,97
+MRC-0175,Grocery & Superstore,GEC Circle,22.360879,91.821066,188
+MRC-0176,Telecom & Mobile Accessories,Kandirpar,23.460054,91.188442,99
+MRC-0177,Grocery & Superstore,Badda,23.778389,90.430604,153
+MRC-0178,Telecom & Mobile Accessories,Uttara,23.876754,90.378985,93
+MRC-0179,Fashion & Apparel,GEC Circle,22.362991,91.819954,69
+MRC-0180,Grocery & Superstore,Badda,23.772709,90.431488,136
+MRC-0181,Pharmacy & Healthcare,Dhanmondi,23.747569,90.378315,172
+MRC-0182,Restaurant & Fast Food,Uttara,23.880641,90.379435,141
+MRC-0183,Restaurant & Fast Food,Uttara,23.881302,90.378594,194
+MRC-0184,Pharmacy & Healthcare,Narayanganj Chasara,23.632758,90.494316,109
+MRC-0185,Grocery & Superstore,Shaheb Bazar,24.36366,88.602877,210
+MRC-0186,Electronics & Gadgets,Banani,23.78875,90.399355,58
+MRC-0187,Restaurant & Fast Food,Old Dhaka (Chawkbazar),23.715425,90.389215,317
+MRC-0188,Pharmacy & Healthcare,Gazipur Chowrasta,23.999579,90.42365,132
+MRC-0189,Telecom & Mobile Accessories,Zindabazar,24.890149,91.864316,61
+MRC-0190,Fashion & Apparel,Amberkhana,24.898643,91.865325,32
+MRC-0191,Pharmacy & Healthcare,Old Dhaka (Chawkbazar),23.714326,90.393353,95
+MRC-0192,Pharmacy & Healthcare,Banani,23.79034,90.40448,191
+MRC-0193,Grocery & Superstore,Uttara,23.876873,90.372971,85
+MRC-0194,Electronics & Gadgets,Savar Bus Stand,23.855757,90.262594,68
+MRC-0195,Grocery & Superstore,Farmgate,23.749243,90.386315,252
+MRC-0196,Grocery & Superstore,Dhanmondi,23.747679,90.376587,157
+MRC-0197,Pharmacy & Healthcare,Shibbari More,22.816082,89.554814,210
+MRC-0198,Electronics & Gadgets,Savar Bus Stand,23.861121,90.262689,33
+MRC-0199,Home Decor & Hardware,Halishahar,22.343847,91.78587,26
+MRC-0200,Telecom & Mobile Accessories,Motijheel C/A,23.730627,90.422281,80
+MRC-0201,Restaurant & Fast Food,Old Dhaka (Chawkbazar),23.721098,90.39719,107
+MRC-0202,Stationery & Bookstore,Motijheel C/A,23.732856,90.416944,69
+MRC-0203,Electronics & Gadgets,Uttara,23.88074,90.383339,61
+MRC-0204,Pharmacy & Healthcare,Jahaj Company More,25.742484,89.243729,61
+MRC-0205,Grocery & Superstore,Amberkhana,24.902007,91.866148,151
+MRC-0206,Restaurant & Fast Food,Badda,23.776304,90.430614,186
+MRC-0207,Restaurant & Fast Food,Motijheel C/A,23.733014,90.42128,122
+MRC-0208,Grocery & Superstore,Mirpur,23.810338,90.363504,224
+MRC-0209,Grocery & Superstore,Gulshan,23.800202,90.415387,192
+MRC-0210,Grocery & Superstore,Agrabad C/A,22.326424,91.80773,105
+MRC-0211,Restaurant & Fast Food,Dhanmondi,23.74299,90.378202,122
+MRC-0212,Electronics & Gadgets,Jatrabari,23.707983,90.435997,27
+MRC-0213,Grocery & Superstore,GEC Circle,22.365936,91.820723,251
+MRC-0214,Stationery & Bookstore,Dhanmondi,23.744812,90.37772,41
+MRC-0215,Fashion & Apparel,Gazipur Chowrasta,24.000797,90.414861,67
+MRC-0216,Grocery & Superstore,Gazipur Chowrasta,23.992557,90.418888,138
+MRC-0217,Pharmacy & Healthcare,Gulshan,23.790466,90.404853,103
+MRC-0218,Restaurant & Fast Food,Agrabad C/A,22.327256,91.814117,280
+MRC-0219,Pharmacy & Healthcare,Uttara,23.872177,90.382682,156
+MRC-0220,Telecom & Mobile Accessories,Old Dhaka (Chawkbazar),23.711799,90.396733,109
+MRC-0221,Grocery & Superstore,Mirpur,23.807183,90.371558,140
+MRC-0222,Pharmacy & Healthcare,Gulshan,23.797109,90.409583,221
+MRC-0223,Fashion & Apparel,Nasirabad,22.369999,91.824497,45
+MRC-0224,Grocery & Superstore,Narayanganj Chasara,23.625086,90.496472,47
+MRC-0225,Grocery & Superstore,Nasirabad,22.370262,91.820938,83
+MRC-0226,Restaurant & Fast Food,Old Dhaka (Chawkbazar),23.716364,90.389433,328
+MRC-0227,Grocery & Superstore,Mirpur,23.80083,90.357096,187
+MRC-0228,Electronics & Gadgets,Narayanganj Chasara,23.62669,90.497633,31
+MRC-0229,Restaurant & Fast Food,Motijheel C/A,23.732677,90.407255,163
+MRC-0230,Electronics & Gadgets,Narayanganj Chasara,23.625697,90.500844,58
+MRC-0231,Pharmacy & Healthcare,Banani,23.798728,90.411478,156
+MRC-0232,Grocery & Superstore,Motijheel C/A,23.734358,90.417536,132
+MRC-0233,Home Decor & Hardware,Zindabazar,24.895983,91.867961,59
+MRC-0234,Telecom & Mobile Accessories,Mirpur,23.805343,90.368008,99
+MRC-0235,Restaurant & Fast Food,Uttara,23.876512,90.375425,252
+MRC-0236,Electronics & Gadgets,Mohammadpur,23.764285,90.367317,75
+MRC-0237,Telecom & Mobile Accessories,Mohammadpur,23.763526,90.356078,109
+MRC-0238,Restaurant & Fast Food,Gulshan,23.794042,90.402956,134
+MRC-0239,Grocery & Superstore,Old Dhaka (Chawkbazar),23.713717,90.390462,199
+MRC-0240,Grocery & Superstore,Mirpur,23.806131,90.36329,134
+MRC-0241,Fashion & Apparel,Kandirpar,23.452227,91.182464,58
+MRC-0242,Grocery & Superstore,Old Dhaka (Chawkbazar),23.718139,90.39652,140
+MRC-0243,Telecom & Mobile Accessories,Mirpur,23.813793,90.359445,131
+MRC-0244,Grocery & Superstore,Dhanmondi,23.74003,90.376038,125
+MRC-0245,Restaurant & Fast Food,Halishahar,22.349062,91.781042,237
+MRC-0246,Fashion & Apparel,Old Dhaka (Chawkbazar),23.713471,90.392247,55
+MRC-0247,Pharmacy & Healthcare,Uttara,23.882941,90.376265,219
+MRC-0248,Pharmacy & Healthcare,Uttara,23.878171,90.380306,149
+MRC-0249,Fashion & Apparel,Agrabad C/A,22.321497,91.816178,63
+MRC-0250,Stationery & Bookstore,Badda,23.777726,90.428416,56
+MRC-0251,Pharmacy & Healthcare,Old Dhaka (Chawkbazar),23.717365,90.39672,180
+MRC-0252,Electronics & Gadgets,Gulshan,23.799129,90.414479,66
+MRC-0253,Grocery & Superstore,Gulshan,23.791998,90.41175,166
+MRC-0254,Grocery & Superstore,Motijheel C/A,23.737887,90.426006,220
+MRC-0255,Grocery & Superstore,Gulshan,23.791112,90.417939,207
+MRC-0256,Fashion & Apparel,Dhanmondi,23.742735,90.369773,58
+MRC-0257,Grocery & Superstore,Nasirabad,22.373017,91.817743,98
+MRC-0258,Restaurant & Fast Food,Banani,23.800412,90.394582,115
+MRC-0259,Grocery & Superstore,Nasirabad,22.370307,91.825769,130
+MRC-0260,Restaurant & Fast Food,Mirpur,23.799742,90.373354,170
+MRC-0261,Grocery & Superstore,Old Dhaka (Chawkbazar),23.709422,90.399413,141
+MRC-0262,Restaurant & Fast Food,Halishahar,22.346267,91.782994,276
+MRC-0263,Home Decor & Hardware,Jatrabari,23.713581,90.438763,32
+MRC-0264,Fashion & Apparel,Old Dhaka (Chawkbazar),23.711973,90.39302,43
+MRC-0265,Grocery & Superstore,Mirpur,23.806862,90.359614,130
+MRC-0266,Fashion & Apparel,Dhanmondi,23.751622,90.374791,50
+MRC-0267,Pharmacy & Healthcare,GEC Circle,22.368441,91.824086,76
+MRC-0268,Grocery & Superstore,Zindabazar,24.892211,91.863294,171
+MRC-0269,Restaurant & Fast Food,Mirpur,23.811662,90.351701,240
+MRC-0270,Restaurant & Fast Food,Mirpur,23.804696,90.378671,190
+MRC-0271,Grocery & Superstore,Zindabazar,24.894411,91.871856,92
+MRC-0272,Pharmacy & Healthcare,Dhanmondi,23.74625,90.378551,78
+MRC-0273,Fashion & Apparel,Dhanmondi,23.742963,90.376164,56
+MRC-0274,Fashion & Apparel,Zindabazar,24.899723,91.868438,75
+MRC-0275,Electronics & Gadgets,Mohammadpur,23.766139,90.364322,39
+MRC-0276,Stationery & Bookstore,Motijheel C/A,23.737073,90.418002,66
+MRC-0277,Grocery & Superstore,Motijheel C/A,23.729593,90.411518,117
+MRC-0278,Fashion & Apparel,Mirpur,23.807402,90.368236,55
+MRC-0279,Fashion & Apparel,Narayanganj Chasara,23.630653,90.51577,35
+MRC-0280,Pharmacy & Healthcare,Gulshan,23.799015,90.405156,155
+MRC-0281,Telecom & Mobile Accessories,Amberkhana,24.903526,91.859963,74
+MRC-0282,Telecom & Mobile Accessories,Kandirpar,23.461683,91.182082,139
+MRC-0283,Pharmacy & Healthcare,Halishahar,22.349272,91.777202,83
+MRC-0284,Grocery & Superstore,Uttara,23.876993,90.379311,229
+MRC-0285,Grocery & Superstore,GEC Circle,22.36302,91.814077,202
+MRC-0286,Stationery & Bookstore,Zindabazar,24.900012,91.868644,46
+MRC-0287,Grocery & Superstore,Gulshan,23.792101,90.401382,62
+MRC-0288,Restaurant & Fast Food,Gazipur Chowrasta,23.998832,90.421475,205
+MRC-0289,Pharmacy & Healthcare,Banani,23.792366,90.404859,95
+MRC-0290,Restaurant & Fast Food,Savar Bus Stand,23.853318,90.266224,259
+MRC-0291,Grocery & Superstore,Banani,23.789607,90.394462,223
+MRC-0292,Grocery & Superstore,Gulshan,23.786553,90.405932,184
+MRC-0293,Telecom & Mobile Accessories,Motijheel C/A,23.734144,90.417212,83
+MRC-0294,Grocery & Superstore,Motijheel C/A,23.738214,90.418563,152
+MRC-0295,Grocery & Superstore,Jatrabari,23.710399,90.43203,173
+MRC-0296,Grocery & Superstore,Farmgate,23.758018,90.386516,145
+MRC-0297,Home Decor & Hardware,Halishahar,22.33777,91.7815,43
+MRC-0298,Home Decor & Hardware,Mirpur,23.806359,90.367375,27
+MRC-0299,Restaurant & Fast Food,Gulshan,23.803405,90.410709,214
+MRC-0300,Grocery & Superstore,Agrabad C/A,22.330741,91.815293,220
+MRC-0301,Grocery & Superstore,Mirpur,23.804705,90.369357,111
+MRC-0302,Grocery & Superstore,Old Dhaka (Chawkbazar),23.716425,90.399279,161
+MRC-0303,Grocery & Superstore,Banani,23.790618,90.405804,255
+MRC-0304,Grocery & Superstore,Banani,23.792243,90.398034,157
+MRC-0305,Pharmacy & Healthcare,Mohammadpur,23.761475,90.356094,161
+MRC-0306,Pharmacy & Healthcare,Amberkhana,24.904287,91.861332,98
+MRC-0307,Stationery & Bookstore,Gulshan,23.78593,90.402452,105
+MRC-0308,Grocery & Superstore,Old Dhaka (Chawkbazar),23.713047,90.405348,234
+MRC-0309,Restaurant & Fast Food,Gulshan,23.794181,90.396078,172
+MRC-0310,Stationery & Bookstore,Mirpur,23.804258,90.36863,45
+MRC-0311,Fashion & Apparel,Zindabazar,24.898845,91.867802,50
+MRC-0312,Restaurant & Fast Food,Zindabazar,24.901833,91.864829,133
+MRC-0313,Telecom & Mobile Accessories,Mirpur,23.814831,90.366271,116
+MRC-0314,Restaurant & Fast Food,Shaheb Bazar,24.363134,88.605884,294
+MRC-0315,Grocery & Superstore,Jatrabari,23.708105,90.429196,90
+MRC-0316,Restaurant & Fast Food,Badda,23.782194,90.427667,215
+MRC-0317,Electronics & Gadgets,Sadar Road,22.70724,90.357766,47
+MRC-0318,Stationery & Bookstore,Gazipur Chowrasta,23.997329,90.423017,66
+MRC-0319,Restaurant & Fast Food,Mohammadpur,23.762423,90.349938,215
+MRC-0320,Grocery & Superstore,Old Dhaka (Chawkbazar),23.714296,90.394702,175
+MRC-0321,Stationery & Bookstore,Kandirpar,23.45757,91.185278,72
+MRC-0322,Electronics & Gadgets,Old Dhaka (Chawkbazar),23.714902,90.392789,44
+MRC-0323,Grocery & Superstore,Mirpur,23.804257,90.368988,142
+MRC-0324,Pharmacy & Healthcare,Farmgate,23.747262,90.388938,158
+MRC-0325,Pharmacy & Healthcare,Uttara,23.876287,90.381224,129
+MRC-0326,Grocery & Superstore,Badda,23.785419,90.432503,130
+MRC-0327,Telecom & Mobile Accessories,Amberkhana,24.902462,91.873183,121
+MRC-0328,Restaurant & Fast Food,Dhanmondi,23.746827,90.369474,222
+MRC-0329,Telecom & Mobile Accessories,Uttara,23.875328,90.378134,62
+MRC-0330,Restaurant & Fast Food,GEC Circle,22.360681,91.81693,283
+MRC-0331,Grocery & Superstore,Uttara,23.872126,90.380542,50
+MRC-0332,Grocery & Superstore,Uttara,23.872576,90.376663,147
+MRC-0333,Telecom & Mobile Accessories,Jatrabari,23.707243,90.43614,161
+MRC-0334,Restaurant & Fast Food,Farmgate,23.756523,90.384485,186
+MRC-0335,Grocery & Superstore,Dhanmondi,23.734544,90.37884,202
+MRC-0336,Restaurant & Fast Food,Gulshan,23.788298,90.407854,294
+MRC-0337,Pharmacy & Healthcare,Nasirabad,22.368017,91.813016,135
+MRC-0338,Restaurant & Fast Food,Old Dhaka (Chawkbazar),23.717097,90.394725,233
+MRC-0339,Fashion & Apparel,Mirpur,23.805818,90.368217,42
+MRC-0340,Restaurant & Fast Food,Mirpur,23.815436,90.365135,222
+MRC-0341,Telecom & Mobile Accessories,Narayanganj Chasara,23.622023,90.496014,110
+MRC-0342,Fashion & Apparel,Narayanganj Chasara,23.622067,90.500735,28
+MRC-0343,Pharmacy & Healthcare,Agrabad C/A,22.325912,91.8125,205
+MRC-0344,Grocery & Superstore,Savar Bus Stand,23.857648,90.265471,112
+MRC-0345,Restaurant & Fast Food,Old Dhaka (Chawkbazar),23.714303,90.409766,285
+MRC-0346,Grocery & Superstore,Mohammadpur,23.762148,90.35798,126
+MRC-0347,Pharmacy & Healthcare,Mirpur,23.802422,90.371088,104
+MRC-0348,Restaurant & Fast Food,Uttara,23.878158,90.378298,288
+MRC-0349,Home Decor & Hardware,Jahaj Company More,25.742476,89.253944,62
+MRC-0350,Grocery & Superstore,Dhanmondi,23.751133,90.367451,249
+MRC-0351,Restaurant & Fast Food,Narayanganj Chasara,23.620289,90.498881,206
+MRC-0352,Grocery & Superstore,Uttara,23.875354,90.379218,149
+MRC-0353,Home Decor & Hardware,Old Dhaka (Chawkbazar),23.717845,90.396014,35
+MRC-0354,Electronics & Gadgets,Shibbari More,22.819521,89.553016,51
+MRC-0355,Home Decor & Hardware,Shibbari More,22.818531,89.557093,62
+MRC-0356,Grocery & Superstore,Mirpur,23.807285,90.373396,158
+MRC-0357,Restaurant & Fast Food,Dhanmondi,23.747847,90.380198,171
+MRC-0358,Fashion & Apparel,Sadar Road,22.701566,90.354829,60
+MRC-0359,Grocery & Superstore,Savar Bus Stand,23.860596,90.265188,157
+MRC-0360,Restaurant & Fast Food,Zindabazar,24.901747,91.866073,173
+MRC-0361,Restaurant & Fast Food,Zindabazar,24.90038,91.86787,209
+MRC-0362,Telecom & Mobile Accessories,Old Dhaka (Chawkbazar),23.719822,90.401398,80
+MRC-0363,Stationery & Bookstore,Jatrabari,23.716171,90.450523,30
+MRC-0364,Home Decor & Hardware,Uttara,23.886715,90.37867,43
+MRC-0365,Grocery & Superstore,Uttara,23.877179,90.376902,134
+MRC-0366,Pharmacy & Healthcare,Farmgate,23.757845,90.382104,140
+MRC-0367,Pharmacy & Healthcare,Amberkhana,24.907251,91.862037,157
+MRC-0368,Pharmacy & Healthcare,Mohammadpur,23.772619,90.357478,134
+MRC-0369,Stationery & Bookstore,Mirpur,23.802472,90.366515,67
+MRC-0370,Electronics & Gadgets,Old Dhaka (Chawkbazar),23.716544,90.392961,16
+MRC-0371,Grocery & Superstore,Gulshan,23.799468,90.410424,147
+MRC-0372,Grocery & Superstore,Badda,23.778787,90.420936,156
+MRC-0373,Home Decor & Hardware,Agrabad C/A,22.328701,91.81476,43
+MRC-0374,Electronics & Gadgets,Old Dhaka (Chawkbazar),23.718764,90.397826,32
+MRC-0375,Pharmacy & Healthcare,Nasirabad,22.36725,91.827236,155
+MRC-0376,Grocery & Superstore,Uttara,23.875593,90.37483,125
+MRC-0377,Telecom & Mobile Accessories,GEC Circle,22.359388,91.820724,122
+MRC-0378,Pharmacy & Healthcare,Zindabazar,24.893173,91.872372,87
+MRC-0379,Home Decor & Hardware,Agrabad C/A,22.317083,91.816155,39
+MRC-0380,Pharmacy & Healthcare,GEC Circle,22.357484,91.818868,39
+MRC-0381,Pharmacy & Healthcare,Zindabazar,24.8933,91.870167,54
+MRC-0382,Restaurant & Fast Food,Dhanmondi,23.741566,90.37539,153
+MRC-0383,Fashion & Apparel,Old Dhaka (Chawkbazar),23.719382,90.401806,51
+MRC-0384,Pharmacy & Healthcare,Jatrabari,23.70608,90.430762,135
+MRC-0385,Pharmacy & Healthcare,Motijheel C/A,23.727045,90.409978,101
+MRC-0386,Pharmacy & Healthcare,Old Dhaka (Chawkbazar),23.71877,90.402547,167
+MRC-0387,Grocery & Superstore,Shibbari More,22.814981,89.559355,189
+MRC-0388,Pharmacy & Healthcare,Dhanmondi,23.751838,90.378906,110
+MRC-0389,Pharmacy & Healthcare,Kandirpar,23.458972,91.178253,58
+MRC-0390,Home Decor & Hardware,Shaheb Bazar,24.366825,88.606878,34
+MRC-0391,Electronics & Gadgets,Banani,23.787792,90.405449,74
+MRC-0392,Grocery & Superstore,Old Dhaka (Chawkbazar),23.716331,90.404934,106
+MRC-0393,Grocery & Superstore,Zindabazar,24.891495,91.867024,152
+MRC-0394,Grocery & Superstore,Motijheel C/A,23.732258,90.416244,101
+MRC-0395,Stationery & Bookstore,Badda,23.778197,90.433443,67
+MRC-0396,Grocery & Superstore,Mohammadpur,23.762307,90.355769,273
+MRC-0397,Restaurant & Fast Food,Dinajpur Sadar,25.623996,88.632188,282
+MRC-0398,Home Decor & Hardware,Mohammadpur,23.769962,90.359294,34
+MRC-0399,Grocery & Superstore,Old Dhaka (Chawkbazar),23.718465,90.400928,159
+MRC-0400,Restaurant & Fast Food,Old Dhaka (Chawkbazar),23.714769,90.388958,82
+MRC-0401,Grocery & Superstore,Badda,23.781378,90.426493,105
+MRC-0402,Grocery & Superstore,Dinajpur Sadar,25.626892,88.631296,231
+MRC-0403,Grocery & Superstore,Jatrabari,23.709488,90.43132,78
+MRC-0404,Fashion & Apparel,Dhanmondi,23.743309,90.372777,50
+MRC-0405,Fashion & Apparel,Jatrabari,23.711257,90.443386,51
+MRC-0406,Fashion & Apparel,Dhanmondi,23.748983,90.366517,44
+MRC-0407,Electronics & Gadgets,Uttara,23.876486,90.382133,36
+MRC-0408,Pharmacy & Healthcare,Shibbari More,22.823387,89.547174,224
+MRC-0409,Grocery & Superstore,Dhanmondi,23.7403,90.380244,252
+MRC-0410,Telecom & Mobile Accessories,Kandirpar,23.458962,91.190243,86
+MRC-0411,Electronics & Gadgets,Banani,23.789136,90.414329,30
+MRC-0412,Grocery & Superstore,Mirpur,23.801999,90.378113,180
+MRC-0413,Telecom & Mobile Accessories,Motijheel C/A,23.733997,90.422285,116
+MRC-0414,Pharmacy & Healthcare,Zindabazar,24.897492,91.874546,113
+MRC-0415,Telecom & Mobile Accessories,Jahaj Company More,25.74847,89.255491,114
+MRC-0416,Electronics & Gadgets,Nasirabad,22.366325,91.822862,55
+MRC-0417,Grocery & Superstore,Mirpur,23.802122,90.368498,214
+MRC-0418,Restaurant & Fast Food,Amberkhana,24.90612,91.86823,251
+MRC-0419,Stationery & Bookstore,Old Dhaka (Chawkbazar),23.720244,90.402739,63
+MRC-0420,Fashion & Apparel,Gulshan,23.795469,90.41318,35
+MRC-0421,Restaurant & Fast Food,Farmgate,23.762499,90.383835,333
+MRC-0422,Electronics & Gadgets,Dhanmondi,23.745472,90.376822,62
+MRC-0423,Pharmacy & Healthcare,Mohammadpur,23.762361,90.356406,163
+MRC-0424,Restaurant & Fast Food,Badda,23.774793,90.421118,110
+MRC-0425,Pharmacy & Healthcare,Banani,23.799456,90.403395,127
+MRC-0426,Grocery & Superstore,Dhanmondi,23.739132,90.377525,142
+MRC-0427,Grocery & Superstore,Jahaj Company More,25.745463,89.241315,157
+MRC-0428,Electronics & Gadgets,Savar Bus Stand,23.855359,90.265379,44
+MRC-0429,Grocery & Superstore,Mohammadpur,23.766803,90.355525,126
+MRC-0430,Grocery & Superstore,GEC Circle,22.363798,91.820449,178
+MRC-0431,Electronics & Gadgets,Motijheel C/A,23.74248,90.422222,22
+MRC-0432,Fashion & Apparel,GEC Circle,22.365315,91.828208,77
+MRC-0433,Restaurant & Fast Food,Jatrabari,23.705679,90.441532,221
+MRC-0434,Telecom & Mobile Accessories,Mirpur,23.817501,90.377322,163
+MRC-0435,Fashion & Apparel,GEC Circle,22.360868,91.8166,39
+MRC-0436,Fashion & Apparel,Mohammadpur,23.770583,90.356353,72
+MRC-0437,Fashion & Apparel,Gazipur Chowrasta,24.001198,90.42517,30
+MRC-0438,Pharmacy & Healthcare,Jatrabari,23.715287,90.431103,130
+MRC-0439,Grocery & Superstore,Badda,23.784698,90.429625,274
+MRC-0440,Fashion & Apparel,Nasirabad,22.369636,91.821529,49
+MRC-0441,Restaurant & Fast Food,Banani,23.795494,90.413156,156
+MRC-0442,Restaurant & Fast Food,Dhanmondi,23.745216,90.38085,69
+MRC-0443,Restaurant & Fast Food,Dhanmondi,23.743429,90.37365,206
+MRC-0444,Restaurant & Fast Food,Old Dhaka (Chawkbazar),23.715572,90.397654,134
+MRC-0445,Fashion & Apparel,Banani,23.793336,90.400756,60
+MRC-0446,Pharmacy & Healthcare,Agrabad C/A,22.325164,91.810378,93
+MRC-0447,Grocery & Superstore,Motijheel C/A,23.73577,90.419114,151
+MRC-0448,Grocery & Superstore,Old Dhaka (Chawkbazar),23.718726,90.403867,145
+MRC-0449,Electronics & Gadgets,Banani,23.793549,90.40118,30
+MRC-0450,Pharmacy & Healthcare,Old Dhaka (Chawkbazar),23.712665,90.406246,194
+MRC-0451,Home Decor & Hardware,Amberkhana,24.908435,91.875947,51
+MRC-0452,Pharmacy & Healthcare,Gazipur Chowrasta,24.004671,90.419786,126
+MRC-0453,Fashion & Apparel,Dhanmondi,23.748703,90.376831,41
+MRC-0454,Grocery & Superstore,Jatrabari,23.719371,90.437972,64
+MRC-0455,Restaurant & Fast Food,Nasirabad,22.377016,91.823658,169
+MRC-0456,Grocery & Superstore,Jatrabari,23.715859,90.436475,93
+MRC-0457,Telecom & Mobile Accessories,Motijheel C/A,23.730759,90.424084,34
+MRC-0458,Grocery & Superstore,Agrabad C/A,22.324964,91.811235,56
+MRC-0459,Fashion & Apparel,Kandirpar,23.464057,91.183231,69
+MRC-0460,Fashion & Apparel,Old Dhaka (Chawkbazar),23.714137,90.398602,62
+MRC-0461,Electronics & Gadgets,Dhanmondi,23.752062,90.372816,38
+MRC-0462,Pharmacy & Healthcare,Halishahar,22.33569,91.787649,122
+MRC-0463,Stationery & Bookstore,Savar Bus Stand,23.85648,90.265438,56
+MRC-0464,Fashion & Apparel,Savar Bus Stand,23.8616,90.264739,56
+MRC-0465,Grocery & Superstore,Mirpur,23.805999,90.37419,126
+MRC-0466,Grocery & Superstore,Farmgate,23.758861,90.387155,99
+MRC-0467,Pharmacy & Healthcare,Gazipur Chowrasta,23.99676,90.415714,95
+MRC-0468,Grocery & Superstore,Jahaj Company More,25.750642,89.253867,294
+MRC-0469,Stationery & Bookstore,Mirpur,23.80304,90.369721,44
+MRC-0470,Pharmacy & Healthcare,Banani,23.785422,90.407754,59
+MRC-0471,Restaurant & Fast Food,Gulshan,23.793729,90.404251,160
+MRC-0472,Fashion & Apparel,Dhanmondi,23.751069,90.377954,74
+MRC-0473,Grocery & Superstore,Uttara,23.874614,90.377836,132
+MRC-0474,Grocery & Superstore,Mohammadpur,23.764654,90.362539,191
+MRC-0475,Pharmacy & Healthcare,Uttara,23.878393,90.377296,132
+MRC-0476,Restaurant & Fast Food,Halishahar,22.340717,91.780959,238
+MRC-0477,Electronics & Gadgets,Uttara,23.87735,90.375355,43
+MRC-0478,Grocery & Superstore,Motijheel C/A,23.729833,90.416279,139
+MRC-0479,Pharmacy & Healthcare,Shaheb Bazar,24.364773,88.607304,73
+MRC-0480,Grocery & Superstore,Halishahar,22.349834,91.772875,151
+MRC-0481,Grocery & Superstore,Motijheel C/A,23.737019,90.418934,269
+MRC-0482,Grocery & Superstore,Agrabad C/A,22.325219,91.8163,106
+MRC-0483,Grocery & Superstore,Uttara,23.867671,90.37006,96
+MRC-0484,Grocery & Superstore,Shibbari More,22.827752,89.543234,224
+MRC-0485,Grocery & Superstore,Sadar Road,22.701741,90.347767,122
+MRC-0486,Home Decor & Hardware,Old Dhaka (Chawkbazar),23.713448,90.39262,42
+MRC-0487,Electronics & Gadgets,Dhanmondi,23.75036,90.365662,41
+MRC-0488,Grocery & Superstore,Jahaj Company More,25.746515,89.245404,115
+MRC-0489,Grocery & Superstore,Dhanmondi,23.742003,90.379715,108
+MRC-0490,Fashion & Apparel,Banani,23.78976,90.403399,70
+MRC-0491,Electronics & Gadgets,Amberkhana,24.906427,91.868283,30
+MRC-0492,Home Decor & Hardware,Jahaj Company More,25.749168,89.255811,40
+MRC-0493,Pharmacy & Healthcare,Amberkhana,24.9056,91.86632,102
+MRC-0494,Grocery & Superstore,Mirpur,23.806242,90.36594,87
+MRC-0495,Grocery & Superstore,Sadar Road,22.704682,90.349713,278
+MRC-0496,Pharmacy & Healthcare,Agrabad C/A,22.328684,91.815339,109
+MRC-0497,Pharmacy & Healthcare,Mirpur,23.803673,90.360339,138
+MRC-0498,Pharmacy & Healthcare,Gulshan,23.79568,90.408047,118
+MRC-0499,Grocery & Superstore,Banani,23.793113,90.403976,265
+MRC-0500,Pharmacy & Healthcare,Dhanmondi,23.747019,90.377709,48
+MRC-0501,Grocery & Superstore,Amberkhana,24.904203,91.864812,72
+MRC-0502,Telecom & Mobile Accessories,Halishahar,22.347423,91.785392,43
+MRC-0503,Grocery & Superstore,Shaheb Bazar,24.360842,88.59434,231
+MRC-0504,Stationery & Bookstore,Kandirpar,23.464685,91.185032,64
+MRC-0505,Grocery & Superstore,Savar Bus Stand,23.861234,90.264283,212
+MRC-0506,Restaurant & Fast Food,Dhanmondi,23.751011,90.378065,78
+MRC-0507,Pharmacy & Healthcare,Uttara,23.874523,90.375662,150
+MRC-0508,Grocery & Superstore,Banani,23.800258,90.405034,211
+MRC-0509,Grocery & Superstore,Jatrabari,23.710253,90.430044,155
+MRC-0510,Pharmacy & Healthcare,Old Dhaka (Chawkbazar),23.718418,90.396844,96
+MRC-0511,Grocery & Superstore,Dinajpur Sadar,25.63479,88.63436,154
+MRC-0512,Restaurant & Fast Food,Mohammadpur,23.767757,90.354159,231
+MRC-0513,Pharmacy & Healthcare,Dhanmondi,23.741611,90.371234,80
+MRC-0514,Restaurant & Fast Food,Dhanmondi,23.744362,90.369272,154
+MRC-0515,Pharmacy & Healthcare,Halishahar,22.341099,91.775342,51
+MRC-0516,Grocery & Superstore,Gazipur Chowrasta,24.001393,90.424129,178
+MRC-0517,Pharmacy & Healthcare,Uttara,23.872601,90.386689,77
+MRC-0518,Home Decor & Hardware,Jahaj Company More,25.748348,89.250952,39
+MRC-0519,Pharmacy & Healthcare,Badda,23.781562,90.435288,167
+MRC-0520,Electronics & Gadgets,Gazipur Chowrasta,24.002527,90.425783,34
+MRC-0521,Electronics & Gadgets,Dinajpur Sadar,25.639899,88.632307,33
+MRC-0522,Pharmacy & Healthcare,Dhanmondi,23.745608,90.378239,144
+MRC-0523,Restaurant & Fast Food,Zindabazar,24.890984,91.865357,159
+MRC-0524,Grocery & Superstore,Kandirpar,23.457343,91.189728,135
+MRC-0525,Electronics & Gadgets,Mirpur,23.808733,90.366031,43
+MRC-0526,Restaurant & Fast Food,Badda,23.777181,90.43014,184
+MRC-0527,Electronics & Gadgets,Mohammadpur,23.769523,90.35642,36
+MRC-0528,Stationery & Bookstore,Gulshan,23.796218,90.404738,63
+MRC-0529,Pharmacy & Healthcare,Farmgate,23.760894,90.389787,141
+MRC-0530,Telecom & Mobile Accessories,Shaheb Bazar,24.362533,88.597391,87
+MRC-0531,Grocery & Superstore,Banani,23.793983,90.406708,141
+MRC-0532,Fashion & Apparel,Uttara,23.883331,90.3772,41
+MRC-0533,Fashion & Apparel,Badda,23.779957,90.422355,63
+MRC-0534,Grocery & Superstore,Dhanmondi,23.7484,90.374745,182
+MRC-0535,Restaurant & Fast Food,Mirpur,23.802661,90.366589,158
+MRC-0536,Fashion & Apparel,Old Dhaka (Chawkbazar),23.714258,90.393555,40
+MRC-0537,Electronics & Gadgets,GEC Circle,22.360158,91.818184,40
+MRC-0538,Grocery & Superstore,Mirpur,23.804565,90.367839,231
+MRC-0539,Fashion & Apparel,Banani,23.786957,90.404896,40
+MRC-0540,Restaurant & Fast Food,Gulshan,23.79079,90.40363,150
+MRC-0541,Grocery & Superstore,Zindabazar,24.902039,91.870636,138
+MRC-0542,Restaurant & Fast Food,GEC Circle,22.355838,91.813769,234
+MRC-0543,Telecom & Mobile Accessories,Uttara,23.872738,90.385829,144
+MRC-0544,Restaurant & Fast Food,Mohammadpur,23.75683,90.360222,246
+MRC-0545,Grocery & Superstore,Mohammadpur,23.761129,90.359195,214
+MRC-0546,Grocery & Superstore,Nasirabad,22.379265,91.828309,149
+MRC-0547,Fashion & Apparel,Motijheel C/A,23.734254,90.415638,62
+MRC-0548,Grocery & Superstore,Uttara,23.878764,90.374897,113
+MRC-0549,Electronics & Gadgets,Dinajpur Sadar,25.623608,88.633677,54
+MRC-0550,Restaurant & Fast Food,Farmgate,23.763134,90.388457,170
+MRC-0551,Stationery & Bookstore,Farmgate,23.760603,90.383987,59
+MRC-0552,Pharmacy & Healthcare,GEC Circle,22.359538,91.814078,172
+MRC-0553,Grocery & Superstore,Old Dhaka (Chawkbazar),23.716001,90.394596,124
+MRC-0554,Grocery & Superstore,Agrabad C/A,22.332203,91.815479,169
+MRC-0555,Fashion & Apparel,Uttara,23.878214,90.38539,87
+MRC-0556,Restaurant & Fast Food,Mirpur,23.805027,90.356592,180
+MRC-0557,Grocery & Superstore,Old Dhaka (Chawkbazar),23.70822,90.397599,224
+MRC-0558,Stationery & Bookstore,Gazipur Chowrasta,23.994404,90.415916,30
+MRC-0559,Grocery & Superstore,Narayanganj Chasara,23.620864,90.50068,236
+MRC-0560,Fashion & Apparel,Gulshan,23.780929,90.410402,49
+MRC-0561,Restaurant & Fast Food,Gulshan,23.794273,90.406719,130
+MRC-0562,Pharmacy & Healthcare,Dinajpur Sadar,25.626832,88.642061,165
+MRC-0563,Grocery & Superstore,Zindabazar,24.894556,91.855614,134
+MRC-0564,Fashion & Apparel,Gulshan,23.797154,90.401286,35
+MRC-0565,Restaurant & Fast Food,Mirpur,23.806332,90.375749,143
+MRC-0566,Pharmacy & Healthcare,Uttara,23.871422,90.377311,135
+MRC-0567,Grocery & Superstore,Jatrabari,23.712499,90.433208,111
+MRC-0568,Grocery & Superstore,Mirpur,23.809155,90.365114,173
+MRC-0569,Electronics & Gadgets,Badda,23.778315,90.425799,57
+MRC-0570,Grocery & Superstore,Gulshan,23.79147,90.409414,144
+MRC-0571,Grocery & Superstore,Dhanmondi,23.749844,90.382187,284
+MRC-0572,Grocery & Superstore,Uttara,23.870279,90.377206,219
+MRC-0573,Grocery & Superstore,Old Dhaka (Chawkbazar),23.715329,90.402763,166
+MRC-0574,Restaurant & Fast Food,Savar Bus Stand,23.861488,90.2614,185
+MRC-0575,Grocery & Superstore,Nasirabad,22.378276,91.821688,255
+MRC-0576,Fashion & Apparel,Motijheel C/A,23.742248,90.41296,45
+MRC-0577,Telecom & Mobile Accessories,Mohammadpur,23.763287,90.365965,117
+MRC-0578,Restaurant & Fast Food,Gazipur Chowrasta,23.998007,90.42052,187
+MRC-0579,Grocery & Superstore,Shibbari More,22.824499,89.552684,114
+MRC-0580,Electronics & Gadgets,Dhanmondi,23.754665,90.372692,38
+MRC-0581,Pharmacy & Healthcare,Motijheel C/A,23.733815,90.413638,78
+MRC-0582,Home Decor & Hardware,Agrabad C/A,22.33046,91.817076,30
+MRC-0583,Grocery & Superstore,Jahaj Company More,25.748859,89.245395,214
+MRC-0584,Grocery & Superstore,Shaheb Bazar,24.365594,88.599232,170
+MRC-0585,Fashion & Apparel,Motijheel C/A,23.730013,90.414924,49
+MRC-0586,Fashion & Apparel,Dhanmondi,23.746911,90.378217,30
+MRC-0587,Telecom & Mobile Accessories,Dhanmondi,23.743428,90.374626,75
+MRC-0588,Pharmacy & Healthcare,Banani,23.801173,90.40325,47
+MRC-0589,Grocery & Superstore,Dhanmondi,23.747916,90.372452,116
+MRC-0590,Restaurant & Fast Food,Dhanmondi,23.755308,90.372283,104
+MRC-0591,Restaurant & Fast Food,Banani,23.792702,90.402528,95
+MRC-0592,Restaurant & Fast Food,Mohammadpur,23.764464,90.362117,244
+MRC-0593,Stationery & Bookstore,Badda,23.779131,90.429395,95
+MRC-0594,Restaurant & Fast Food,Shaheb Bazar,24.370928,88.598259,148
+MRC-0595,Grocery & Superstore,Old Dhaka (Chawkbazar),23.713266,90.392542,243
+MRC-0596,Fashion & Apparel,Narayanganj Chasara,23.623477,90.496727,32
+MRC-0597,Restaurant & Fast Food,Halishahar,22.347152,91.764821,190
+MRC-0598,Grocery & Superstore,Motijheel C/A,23.736197,90.413069,300
+MRC-0599,Stationery & Bookstore,Agrabad C/A,22.327806,91.801116,48
+MRC-0600,Restaurant & Fast Food,Narayanganj Chasara,23.627853,90.48872,109
+MRC-0601,Fashion & Apparel,Gulshan,23.786358,90.407725,53
+MRC-0602,Restaurant & Fast Food,Halishahar,22.340567,91.777147,227
+MRC-0603,Pharmacy & Healthcare,Mohammadpur,23.773043,90.359366,170
+MRC-0604,Restaurant & Fast Food,Uttara,23.873269,90.375277,158
+MRC-0605,Pharmacy & Healthcare,Banani,23.795572,90.406619,173
+MRC-0606,Restaurant & Fast Food,Shibbari More,22.817567,89.538652,142
+MRC-0607,Grocery & Superstore,Mirpur,23.802756,90.354269,147
+MRC-0608,Fashion & Apparel,Nasirabad,22.364993,91.824,84
+MRC-0609,Grocery & Superstore,Zindabazar,24.899257,91.873474,193
+MRC-0610,Fashion & Apparel,Shibbari More,22.821026,89.553348,41
+MRC-0611,Grocery & Superstore,Gazipur Chowrasta,23.992697,90.421855,277
+MRC-0612,Restaurant & Fast Food,Uttara,23.867589,90.372972,183
+MRC-0613,Home Decor & Hardware,Gulshan,23.792134,90.417138,26
+MRC-0614,Electronics & Gadgets,Gulshan,23.789233,90.401981,62
+MRC-0615,Pharmacy & Healthcare,Agrabad C/A,22.328957,91.81502,99
+MRC-0616,Restaurant & Fast Food,Halishahar,22.340128,91.781918,202
+MRC-0617,Pharmacy & Healthcare,Nasirabad,22.366721,91.825444,87
+MRC-0618,Stationery & Bookstore,Gulshan,23.793441,90.407597,70
+MRC-0619,Fashion & Apparel,Old Dhaka (Chawkbazar),23.714374,90.399352,34
+MRC-0620,Grocery & Superstore,Dhanmondi,23.742426,90.383771,93
+MRC-0621,Grocery & Superstore,Motijheel C/A,23.740826,90.421106,224
+MRC-0622,Grocery & Superstore,Mohammadpur,23.761221,90.366845,244
+MRC-0623,Pharmacy & Healthcare,Motijheel C/A,23.727112,90.420611,154
+MRC-0624,Restaurant & Fast Food,Amberkhana,24.907763,91.869209,149
+MRC-0625,Fashion & Apparel,Kandirpar,23.464589,91.188307,84
+MRC-0626,Restaurant & Fast Food,Mohammadpur,23.760937,90.364065,124
+MRC-0627,Fashion & Apparel,Motijheel C/A,23.730118,90.417068,30
+MRC-0628,Restaurant & Fast Food,Amberkhana,24.900476,91.866251,198
+MRC-0629,Telecom & Mobile Accessories,Dhanmondi,23.7465,90.373599,94
+MRC-0630,Electronics & Gadgets,Nasirabad,22.371152,91.821098,70
+MRC-0631,Grocery & Superstore,Gulshan,23.791151,90.406672,169
+MRC-0632,Telecom & Mobile Accessories,Uttara,23.873658,90.386719,89
+MRC-0633,Grocery & Superstore,Amberkhana,24.899872,91.87645,179
+MRC-0634,Pharmacy & Healthcare,Banani,23.792141,90.397784,132
+MRC-0635,Restaurant & Fast Food,Old Dhaka (Chawkbazar),23.70935,90.395082,291
+MRC-0636,Pharmacy & Healthcare,Mohammadpur,23.765146,90.359917,151
+MRC-0637,Pharmacy & Healthcare,Uttara,23.882834,90.372723,150
+MRC-0638,Restaurant & Fast Food,Old Dhaka (Chawkbazar),23.718195,90.401713,175
+MRC-0639,Restaurant & Fast Food,Gazipur Chowrasta,23.995877,90.42253,213
+MRC-0640,Pharmacy & Healthcare,Narayanganj Chasara,23.629968,90.505883,157
+MRC-0641,Restaurant & Fast Food,Dhanmondi,23.743806,90.383051,263
+MRC-0642,Grocery & Superstore,Mirpur,23.807336,90.367364,224
+MRC-0643,Restaurant & Fast Food,GEC Circle,22.357611,91.825463,129
+MRC-0644,Restaurant & Fast Food,Mirpur,23.806671,90.371074,235
+MRC-0645,Pharmacy & Healthcare,Nasirabad,22.369277,91.822274,120
+MRC-0646,Restaurant & Fast Food,Motijheel C/A,23.734536,90.418945,103
+MRC-0647,Grocery & Superstore,Agrabad C/A,22.326075,91.81228,154
+MRC-0648,Restaurant & Fast Food,Uttara,23.874263,90.379941,194
+MRC-0649,Grocery & Superstore,Sadar Road,22.695416,90.350408,111
+MRC-0650,Pharmacy & Healthcare,Farmgate,23.760393,90.388302,183
+MRC-0651,Grocery & Superstore,Shaheb Bazar,24.363514,88.598171,137
+MRC-0652,Grocery & Superstore,Banani,23.794141,90.402956,223
+MRC-0653,Grocery & Superstore,GEC Circle,22.357,91.828784,155
+MRC-0654,Fashion & Apparel,Mohammadpur,23.758277,90.359072,58
+MRC-0655,Home Decor & Hardware,Motijheel C/A,23.737268,90.422529,17
+MRC-0656,Pharmacy & Healthcare,Agrabad C/A,22.329716,91.813308,131
+MRC-0657,Fashion & Apparel,Badda,23.779825,90.428287,47
+MRC-0658,Restaurant & Fast Food,Dinajpur Sadar,25.627913,88.633267,178
+MRC-0659,Grocery & Superstore,Gulshan,23.792724,90.413335,137
+MRC-0660,Grocery & Superstore,Dhanmondi,23.746473,90.37247,122
+MRC-0661,Restaurant & Fast Food,Uttara,23.871428,90.380655,149
+MRC-0662,Pharmacy & Healthcare,Agrabad C/A,22.31986,91.817705,50
+MRC-0663,Pharmacy & Healthcare,Old Dhaka (Chawkbazar),23.712064,90.400019,87
+MRC-0664,Restaurant & Fast Food,Agrabad C/A,22.332945,91.815549,292
+MRC-0665,Stationery & Bookstore,Shibbari More,22.825882,89.562201,69
+MRC-0666,Pharmacy & Healthcare,Farmgate,23.759573,90.381412,68
+MRC-0667,Restaurant & Fast Food,Agrabad C/A,22.333524,91.814543,111
+MRC-0668,Fashion & Apparel,Gulshan,23.797407,90.413357,72
+MRC-0669,Home Decor & Hardware,Halishahar,22.341319,91.788517,54
+MRC-0670,Restaurant & Fast Food,Uttara,23.872153,90.378008,123
+MRC-0671,Electronics & Gadgets,Shibbari More,22.81398,89.557137,43
+MRC-0672,Electronics & Gadgets,Shaheb Bazar,24.362516,88.605781,28
+MRC-0673,Electronics & Gadgets,GEC Circle,22.351399,91.81677,35
+MRC-0674,Restaurant & Fast Food,Uttara,23.878517,90.385389,243
+MRC-0675,Fashion & Apparel,Shaheb Bazar,24.362855,88.599323,53
+MRC-0676,Pharmacy & Healthcare,Narayanganj Chasara,23.622748,90.499969,105
+MRC-0677,Electronics & Gadgets,Gazipur Chowrasta,24.00085,90.419284,30
+MRC-0678,Grocery & Superstore,Gulshan,23.797418,90.403295,246
+MRC-0679,Grocery & Superstore,GEC Circle,22.361076,91.822766,195
+MRC-0680,Grocery & Superstore,Zindabazar,24.89844,91.861505,96
+MRC-0681,Fashion & Apparel,Jatrabari,23.709249,90.436147,84
+MRC-0682,Grocery & Superstore,Uttara,23.87927,90.380046,155
+MRC-0683,Grocery & Superstore,Gulshan,23.795832,90.407378,143
+MRC-0684,Grocery & Superstore,Agrabad C/A,22.325792,91.805458,278
+MRC-0685,Pharmacy & Healthcare,Gulshan,23.796278,90.423914,79
+MRC-0686,Restaurant & Fast Food,Agrabad C/A,22.320888,91.810001,66
+MRC-0687,Grocery & Superstore,Narayanganj Chasara,23.619814,90.500924,91
+MRC-0688,Electronics & Gadgets,Dhanmondi,23.75422,90.373921,35
+MRC-0689,Grocery & Superstore,Farmgate,23.76088,90.387536,96
+MRC-0690,Restaurant & Fast Food,Badda,23.776261,90.421649,286
+MRC-0691,Pharmacy & Healthcare,Farmgate,23.760182,90.385543,188
+MRC-0692,Electronics & Gadgets,Uttara,23.881583,90.381529,60
+MRC-0693,Restaurant & Fast Food,Gulshan,23.793869,90.401924,158
+MRC-0694,Pharmacy & Healthcare,Savar Bus Stand,23.856746,90.25733,100
+MRC-0695,Fashion & Apparel,Agrabad C/A,22.329468,91.811445,33
+MRC-0696,Telecom & Mobile Accessories,Mohammadpur,23.77149,90.35526,96
+MRC-0697,Pharmacy & Healthcare,Dhanmondi,23.747455,90.373392,96
+MRC-0698,Pharmacy & Healthcare,Amberkhana,24.908427,91.86208,227
+MRC-0699,Stationery & Bookstore,Uttara,23.875985,90.377194,97
+MRC-0700,Fashion & Apparel,Uttara,23.866943,90.37482,55
+MRC-0701,Grocery & Superstore,Old Dhaka (Chawkbazar),23.720662,90.403243,164
+MRC-0702,Grocery & Superstore,Shibbari More,22.819358,89.557434,161
+MRC-0703,Fashion & Apparel,Mirpur,23.808433,90.371837,28
+MRC-0704,Grocery & Superstore,Mirpur,23.80665,90.364262,160
+MRC-0705,Grocery & Superstore,Old Dhaka (Chawkbazar),23.71503,90.404901,128
+MRC-0706,Fashion & Apparel,Narayanganj Chasara,23.622648,90.486524,27
+MRC-0707,Fashion & Apparel,Amberkhana,24.90612,91.865468,35
+MRC-0708,Restaurant & Fast Food,Gulshan,23.781984,90.406167,92
+MRC-0709,Grocery & Superstore,Agrabad C/A,22.326161,91.811768,195
+MRC-0710,Telecom & Mobile Accessories,Sadar Road,22.702786,90.351709,53
+MRC-0711,Restaurant & Fast Food,Agrabad C/A,22.327701,91.807674,248
+MRC-0712,Restaurant & Fast Food,Mirpur,23.801893,90.368257,266
+MRC-0713,Telecom & Mobile Accessories,Gulshan,23.790256,90.404537,158
+MRC-0714,Telecom & Mobile Accessories,Banani,23.78989,90.403982,67
+MRC-0715,Fashion & Apparel,Uttara,23.869916,90.375525,50
+MRC-0716,Grocery & Superstore,Motijheel C/A,23.7292,90.42438,269
+MRC-0717,Grocery & Superstore,Dinajpur Sadar,25.629477,88.633952,135
+MRC-0718,Restaurant & Fast Food,Dhanmondi,23.753286,90.368527,161
+MRC-0719,Restaurant & Fast Food,GEC Circle,22.360597,91.827065,303
+MRC-0720,Restaurant & Fast Food,Uttara,23.875079,90.377157,236
+MRC-0721,Fashion & Apparel,Mirpur,23.804868,90.369648,84
+MRC-0722,Restaurant & Fast Food,Motijheel C/A,23.733754,90.414989,110
+MRC-0723,Restaurant & Fast Food,Gulshan,23.796976,90.413622,92
+MRC-0724,Restaurant & Fast Food,Badda,23.783147,90.417575,281
+MRC-0725,Restaurant & Fast Food,Dinajpur Sadar,25.628083,88.632594,213
+MRC-0726,Restaurant & Fast Food,Jahaj Company More,25.741877,89.252806,279
+MRC-0727,Grocery & Superstore,Jatrabari,23.705754,90.43874,170
+MRC-0728,Pharmacy & Healthcare,Agrabad C/A,22.331137,91.811589,91
+MRC-0729,Grocery & Superstore,Jatrabari,23.716696,90.428604,193
+MRC-0730,Grocery & Superstore,Motijheel C/A,23.739464,90.418254,106
+MRC-0731,Grocery & Superstore,Uttara,23.875074,90.378356,185
+MRC-0732,Restaurant & Fast Food,Shibbari More,22.826339,89.550253,159
+MRC-0733,Pharmacy & Healthcare,Gulshan,23.791186,90.419221,222
+MRC-0734,Pharmacy & Healthcare,Motijheel C/A,23.733611,90.428541,95
+MRC-0735,Restaurant & Fast Food,Dhanmondi,23.745844,90.378563,248
+MRC-0736,Home Decor & Hardware,Motijheel C/A,23.729156,90.41323,46
+MRC-0737,Stationery & Bookstore,Jatrabari,23.709754,90.426969,54
+MRC-0738,Grocery & Superstore,Dhanmondi,23.744221,90.370959,147
+MRC-0739,Restaurant & Fast Food,Dhanmondi,23.744401,90.381001,227
+MRC-0740,Grocery & Superstore,Uttara,23.874899,90.37754,113
+MRC-0741,Fashion & Apparel,Kandirpar,23.456836,91.183064,44
+MRC-0742,Pharmacy & Healthcare,Gulshan,23.793305,90.414931,226
+MRC-0743,Grocery & Superstore,Banani,23.79535,90.408729,282
+MRC-0744,Telecom & Mobile Accessories,Dinajpur Sadar,25.629011,88.641144,158
+MRC-0745,Restaurant & Fast Food,Amberkhana,24.899081,91.870177,112
+MRC-0746,Home Decor & Hardware,Farmgate,23.752134,90.379393,51
+MRC-0747,Pharmacy & Healthcare,Motijheel C/A,23.732348,90.412128,128
+MRC-0748,Grocery & Superstore,Mohammadpur,23.768985,90.359288,264
+MRC-0749,Grocery & Superstore,Gulshan,23.789328,90.403926,184
+MRC-0750,Pharmacy & Healthcare,Old Dhaka (Chawkbazar),23.718319,90.398499,163
+MRC-0751,Stationery & Bookstore,Mirpur,23.811564,90.364744,81
+MRC-0752,Pharmacy & Healthcare,Gulshan,23.801619,90.404262,144
+MRC-0753,Grocery & Superstore,Banani,23.784959,90.404872,204
+MRC-0754,Grocery & Superstore,Halishahar,22.352204,91.778377,100
+MRC-0755,Grocery & Superstore,Amberkhana,24.899394,91.856743,58
+MRC-0756,Grocery & Superstore,Motijheel C/A,23.728132,90.4158,233
+MRC-0757,Home Decor & Hardware,GEC Circle,22.359037,91.822979,65
+MRC-0758,Grocery & Superstore,Amberkhana,24.910262,91.863177,205
+MRC-0759,Grocery & Superstore,Zindabazar,24.897903,91.867841,88
+MRC-0760,Electronics & Gadgets,Dhanmondi,23.752424,90.377363,31
+MRC-0761,Restaurant & Fast Food,Mirpur,23.808106,90.369927,159
+MRC-0762,Fashion & Apparel,Agrabad C/A,22.324594,91.8074,48
+MRC-0763,Grocery & Superstore,Motijheel C/A,23.732816,90.411978,184
+MRC-0764,Fashion & Apparel,Badda,23.786593,90.419659,64
+MRC-0765,Fashion & Apparel,Jahaj Company More,25.747532,89.251927,43
+MRC-0766,Telecom & Mobile Accessories,Dhanmondi,23.744315,90.374098,54
+MRC-0767,Telecom & Mobile Accessories,Shibbari More,22.820634,89.554438,71
+MRC-0768,Pharmacy & Healthcare,Farmgate,23.756626,90.388818,178
+MRC-0769,Pharmacy & Healthcare,Sadar Road,22.701109,90.366783,128
+MRC-0770,Fashion & Apparel,Badda,23.775765,90.414976,47
+MRC-0771,Stationery & Bookstore,Badda,23.786133,90.432712,69
+MRC-0772,Grocery & Superstore,GEC Circle,22.360476,91.81449,304
+MRC-0773,Restaurant & Fast Food,Agrabad C/A,22.332911,91.816514,136
+MRC-0774,Telecom & Mobile Accessories,Uttara,23.87871,90.386057,96
+MRC-0775,Home Decor & Hardware,Nasirabad,22.368231,91.817383,56
+MRC-0776,Pharmacy & Healthcare,Motijheel C/A,23.733562,90.416542,109
+MRC-0777,Home Decor & Hardware,GEC Circle,22.356488,91.821921,24
+MRC-0778,Electronics & Gadgets,Uttara,23.87099,90.378707,18
+MRC-0779,Pharmacy & Healthcare,Agrabad C/A,22.331141,91.805058,133
+MRC-0780,Grocery & Superstore,Farmgate,23.752549,90.381958,108
+MRC-0781,Home Decor & Hardware,Uttara,23.868858,90.380451,27
+MRC-0782,Telecom & Mobile Accessories,Badda,23.779642,90.421269,59
+MRC-0783,Fashion & Apparel,Gulshan,23.794267,90.404527,60
+MRC-0784,Pharmacy & Healthcare,Mohammadpur,23.765924,90.355401,125
+MRC-0785,Grocery & Superstore,Savar Bus Stand,23.859236,90.27139,121
+MRC-0786,Grocery & Superstore,Uttara,23.870462,90.379478,134
+MRC-0787,Grocery & Superstore,Shaheb Bazar,24.361927,88.601063,124
+MRC-0788,Pharmacy & Healthcare,Agrabad C/A,22.326507,91.809158,96
+MRC-0789,Grocery & Superstore,Dhanmondi,23.750654,90.374561,161
+MRC-0790,Pharmacy & Healthcare,Farmgate,23.754721,90.394838,118
+MRC-0791,Grocery & Superstore,Nasirabad,22.372771,91.819538,268
+MRC-0792,Restaurant & Fast Food,Gulshan,23.790821,90.408218,133
+MRC-0793,Stationery & Bookstore,Uttara,23.874498,90.376135,48
+MRC-0794,Grocery & Superstore,Motijheel C/A,23.73207,90.412731,179
+MRC-0795,Pharmacy & Healthcare,Motijheel C/A,23.738586,90.422938,180
+MRC-0796,Grocery & Superstore,Dhanmondi,23.743036,90.379841,147
+MRC-0797,Restaurant & Fast Food,Mohammadpur,23.76412,90.352467,304
+MRC-0798,Fashion & Apparel,Farmgate,23.755262,90.390604,46
+MRC-0799,Grocery & Superstore,Motijheel C/A,23.737785,90.416205,85
+MRC-0800,Pharmacy & Healthcare,Mirpur,23.806072,90.371958,59
+MRC-0801,Stationery & Bookstore,Banani,23.797663,90.395856,64
+MRC-0802,Grocery & Superstore,Nasirabad,22.374894,91.817017,146
+MRC-0803,Restaurant & Fast Food,GEC Circle,22.363192,91.828749,159
+MRC-0804,Grocery & Superstore,Amberkhana,24.904899,91.86437,187
+MRC-0805,Telecom & Mobile Accessories,Uttara,23.874481,90.385024,92
+MRC-0806,Grocery & Superstore,Badda,23.777211,90.418083,135
+MRC-0807,Stationery & Bookstore,Savar Bus Stand,23.860035,90.266467,49
+MRC-0808,Telecom & Mobile Accessories,Old Dhaka (Chawkbazar),23.712811,90.402348,138
+MRC-0809,Restaurant & Fast Food,Jatrabari,23.713591,90.435079,228
+MRC-0810,Home Decor & Hardware,Mohammadpur,23.764896,90.354531,69
+MRC-0811,Pharmacy & Healthcare,Gulshan,23.791653,90.396574,107
+MRC-0812,Fashion & Apparel,Amberkhana,24.898828,91.864288,66
+MRC-0813,Grocery & Superstore,Savar Bus Stand,23.859581,90.255942,277
+MRC-0814,Pharmacy & Healthcare,Mirpur,23.805052,90.371966,151
+MRC-0815,Grocery & Superstore,Gulshan,23.792189,90.403419,100
+MRC-0816,Restaurant & Fast Food,GEC Circle,22.363751,91.826071,183
+MRC-0817,Pharmacy & Healthcare,Mohammadpur,23.770076,90.357637,135
+MRC-0818,Pharmacy & Healthcare,Mirpur,23.804405,90.361758,192
+MRC-0819,Grocery & Superstore,Jatrabari,23.708399,90.433221,318
+MRC-0820,Electronics & Gadgets,Mohammadpur,23.765604,90.363709,56
+MRC-0821,Restaurant & Fast Food,Gazipur Chowrasta,24.0005,90.420496,268
+MRC-0822,Grocery & Superstore,Kandirpar,23.45648,91.17615,131
+MRC-0823,Pharmacy & Healthcare,Banani,23.793024,90.40629,171
+MRC-0824,Restaurant & Fast Food,Sadar Road,22.702554,90.351678,100
+MRC-0825,Home Decor & Hardware,Narayanganj Chasara,23.622332,90.489222,30
+MRC-0826,Grocery & Superstore,Mirpur,23.814751,90.367487,139
+MRC-0827,Electronics & Gadgets,Jahaj Company More,25.741819,89.2448,49
+MRC-0828,Fashion & Apparel,Narayanganj Chasara,23.62358,90.496756,46
+MRC-0829,Restaurant & Fast Food,Gulshan,23.792772,90.400347,127
+MRC-0830,Electronics & Gadgets,Kandirpar,23.459963,91.186887,61
+MRC-0831,Fashion & Apparel,Shaheb Bazar,24.360968,88.599018,78
+MRC-0832,Restaurant & Fast Food,Zindabazar,24.890492,91.864413,203
+MRC-0833,Pharmacy & Healthcare,Zindabazar,24.893448,91.874266,182
+MRC-0834,Grocery & Superstore,Motijheel C/A,23.736925,90.409181,181
+MRC-0835,Pharmacy & Healthcare,Banani,23.792575,90.398068,124
+MRC-0836,Grocery & Superstore,Narayanganj Chasara,23.622674,90.495661,180
+MRC-0837,Grocery & Superstore,Savar Bus Stand,23.860386,90.265659,162
+MRC-0838,Electronics & Gadgets,Uttara,23.880579,90.380275,43
+MRC-0839,Stationery & Bookstore,Farmgate,23.762285,90.387529,34
+MRC-0840,Restaurant & Fast Food,Farmgate,23.752476,90.394666,135
+MRC-0841,Grocery & Superstore,GEC Circle,22.358255,91.811609,112
+MRC-0842,Grocery & Superstore,Old Dhaka (Chawkbazar),23.717064,90.40355,130
+MRC-0843,Stationery & Bookstore,Nasirabad,22.36711,91.821389,73
+MRC-0844,Restaurant & Fast Food,Old Dhaka (Chawkbazar),23.717932,90.397993,154
+MRC-0845,Home Decor & Hardware,GEC Circle,22.359095,91.8133,29
+MRC-0846,Home Decor & Hardware,Dhanmondi,23.741767,90.36888,39
+MRC-0847,Grocery & Superstore,Sadar Road,22.704347,90.354587,196
+MRC-0848,Grocery & Superstore,Banani,23.793072,90.409124,163
+MRC-0849,Grocery & Superstore,Gulshan,23.798886,90.408564,144
+MRC-0850,Electronics & Gadgets,Narayanganj Chasara,23.618872,90.499008,26
+MRC-0851,Grocery & Superstore,Farmgate,23.747293,90.383638,249
+MRC-0852,Restaurant & Fast Food,Mohammadpur,23.765257,90.34995,127
+MRC-0853,Stationery & Bookstore,Jatrabari,23.711055,90.438673,81
+MRC-0854,Restaurant & Fast Food,Dhanmondi,23.743783,90.372863,170
+MRC-0855,Pharmacy & Healthcare,Mohammadpur,23.768985,90.360632,67
+MRC-0856,Restaurant & Fast Food,Kandirpar,23.465728,91.186525,299
+MRC-0857,Pharmacy & Healthcare,Agrabad C/A,22.321993,91.80898,97
+MRC-0858,Grocery & Superstore,Old Dhaka (Chawkbazar),23.711083,90.396433,120
+MRC-0859,Grocery & Superstore,Farmgate,23.74959,90.386339,71
+MRC-0860,Restaurant & Fast Food,Kandirpar,23.459421,91.184084,242
+MRC-0861,Restaurant & Fast Food,Amberkhana,24.910672,91.876331,252
+MRC-0862,Telecom & Mobile Accessories,Mohammadpur,23.756698,90.359451,63
+MRC-0863,Restaurant & Fast Food,Agrabad C/A,22.327455,91.805035,229
+MRC-0864,Grocery & Superstore,Gazipur Chowrasta,24.005935,90.418088,165
+MRC-0865,Stationery & Bookstore,Banani,23.796053,90.409543,96
+MRC-0866,Stationery & Bookstore,Jahaj Company More,25.745912,89.259001,60
+MRC-0867,Telecom & Mobile Accessories,Banani,23.785485,90.410298,85
+MRC-0868,Restaurant & Fast Food,Mirpur,23.801461,90.372671,228
+MRC-0869,Home Decor & Hardware,Uttara,23.871957,90.37775,45
+MRC-0870,Pharmacy & Healthcare,Agrabad C/A,22.330771,91.816776,34
+MRC-0871,Home Decor & Hardware,Dhanmondi,23.753786,90.383956,46
+MRC-0872,Home Decor & Hardware,Dhanmondi,23.742746,90.374599,34
+MRC-0873,Stationery & Bookstore,Mirpur,23.810124,90.369284,61
+MRC-0874,Telecom & Mobile Accessories,Jatrabari,23.70777,90.436005,94
+MRC-0875,Fashion & Apparel,Mohammadpur,23.768974,90.363021,42
+MRC-0876,Electronics & Gadgets,Dhanmondi,23.75262,90.372145,30
+MRC-0877,Grocery & Superstore,Gulshan,23.792435,90.410291,221
+MRC-0878,Electronics & Gadgets,Gulshan,23.78712,90.404821,32
+MRC-0879,Restaurant & Fast Food,Dhanmondi,23.74508,90.370122,181
+MRC-0880,Stationery & Bookstore,Mirpur,23.801107,90.374657,53
+MRC-0881,Fashion & Apparel,Dhanmondi,23.740524,90.381297,46
+MRC-0882,Grocery & Superstore,Gulshan,23.795179,90.40372,118
+MRC-0883,Restaurant & Fast Food,Mohammadpur,23.768906,90.354957,171
+MRC-0884,Grocery & Superstore,Jatrabari,23.708979,90.432179,99
+MRC-0885,Fashion & Apparel,Sadar Road,22.698369,90.358612,19
+MRC-0886,Grocery & Superstore,Jatrabari,23.711119,90.437952,132
+MRC-0887,Grocery & Superstore,Narayanganj Chasara,23.625039,90.515601,297
+MRC-0888,Pharmacy & Healthcare,Halishahar,22.341454,91.78497,65
+MRC-0889,Grocery & Superstore,Gulshan,23.799081,90.404662,167
+MRC-0890,Pharmacy & Healthcare,Old Dhaka (Chawkbazar),23.715594,90.406503,166
+MRC-0891,Stationery & Bookstore,Motijheel C/A,23.741578,90.425149,92
+MRC-0892,Stationery & Bookstore,Mirpur,23.816182,90.370994,43
+MRC-0893,Grocery & Superstore,Gulshan,23.793616,90.414389,248
+MRC-0894,Home Decor & Hardware,Gazipur Chowrasta,24.00728,90.417361,24
+MRC-0895,Restaurant & Fast Food,Old Dhaka (Chawkbazar),23.724397,90.400041,151
+MRC-0896,Fashion & Apparel,Mohammadpur,23.762463,90.36714,59
+MRC-0897,Fashion & Apparel,Shibbari More,22.819723,89.54638,56
+MRC-0898,Grocery & Superstore,Farmgate,23.759953,90.385271,252
+MRC-0899,Restaurant & Fast Food,Old Dhaka (Chawkbazar),23.712052,90.405634,261
+MRC-0900,Grocery & Superstore,Jahaj Company More,25.741876,89.251231,141
+MRC-0901,Telecom & Mobile Accessories,Shibbari More,22.825077,89.552651,113
+MRC-0902,Pharmacy & Healthcare,Uttara,23.871743,90.377238,185
+MRC-0903,Pharmacy & Healthcare,Uttara,23.873479,90.384093,97
+MRC-0904,Restaurant & Fast Food,Old Dhaka (Chawkbazar),23.710864,90.409955,120
+MRC-0905,Fashion & Apparel,Motijheel C/A,23.731991,90.416876,71
+MRC-0906,Restaurant & Fast Food,Dhanmondi,23.741362,90.377593,181
+MRC-0907,Home Decor & Hardware,Zindabazar,24.893263,91.865876,35
+MRC-0908,Grocery & Superstore,Agrabad C/A,22.320845,91.819769,312
+MRC-0909,Restaurant & Fast Food,Farmgate,23.756513,90.381256,118
+MRC-0910,Grocery & Superstore,Jatrabari,23.707843,90.438981,159
+MRC-0911,Grocery & Superstore,Uttara,23.875654,90.381782,146
+MRC-0912,Grocery & Superstore,Jatrabari,23.705897,90.440091,125
+MRC-0913,Home Decor & Hardware,Mirpur,23.800329,90.367694,25
+MRC-0914,Grocery & Superstore,Dinajpur Sadar,25.620364,88.635638,167
+MRC-0915,Fashion & Apparel,Uttara,23.877773,90.379331,38
+MRC-0916,Grocery & Superstore,Motijheel C/A,23.735077,90.421584,214
+MRC-0917,Grocery & Superstore,Agrabad C/A,22.323115,91.810056,176
+MRC-0918,Grocery & Superstore,Mirpur,23.802627,90.373933,162
+MRC-0919,Fashion & Apparel,Amberkhana,24.896527,91.862149,58
+MRC-0920,Grocery & Superstore,Mirpur,23.80359,90.365911,111
+MRC-0921,Grocery & Superstore,Zindabazar,24.900488,91.863286,170
+MRC-0922,Grocery & Superstore,Shibbari More,22.818869,89.5501,195
+MRC-0923,Telecom & Mobile Accessories,Banani,23.796329,90.403812,74
+MRC-0924,Grocery & Superstore,Old Dhaka (Chawkbazar),23.71641,90.398124,173
+MRC-0925,Home Decor & Hardware,Banani,23.794736,90.405149,38
+MRC-0926,Electronics & Gadgets,Gulshan,23.785817,90.408844,38
+MRC-0927,Restaurant & Fast Food,Dhanmondi,23.745856,90.374709,277
+MRC-0928,Pharmacy & Healthcare,Agrabad C/A,22.329538,91.817116,60
+MRC-0929,Restaurant & Fast Food,Mirpur,23.812235,90.369394,137
+MRC-0930,Grocery & Superstore,Mohammadpur,23.765608,90.359716,148
+MRC-0931,Grocery & Superstore,Mohammadpur,23.760145,90.356625,57
+MRC-0932,Electronics & Gadgets,Badda,23.776073,90.437163,27
+MRC-0933,Grocery & Superstore,Mohammadpur,23.769597,90.360171,257
+MRC-0934,Pharmacy & Healthcare,Amberkhana,24.910356,91.874684,141
+MRC-0935,Grocery & Superstore,Savar Bus Stand,23.859743,90.272087,176
+MRC-0936,Restaurant & Fast Food,Banani,23.795428,90.410599,132
+MRC-0937,Grocery & Superstore,Uttara,23.874835,90.380325,213
+MRC-0938,Fashion & Apparel,Mohammadpur,23.767542,90.362801,74
+MRC-0939,Pharmacy & Healthcare,Old Dhaka (Chawkbazar),23.712769,90.399778,75
+MRC-0940,Restaurant & Fast Food,Old Dhaka (Chawkbazar),23.712653,90.39841,159
+MRC-0941,Pharmacy & Healthcare,Halishahar,22.338272,91.770944,205
+MRC-0942,Fashion & Apparel,Mohammadpur,23.763865,90.358527,32
+MRC-0943,Pharmacy & Healthcare,Halishahar,22.341169,91.793173,208
+MRC-0944,Restaurant & Fast Food,Dhanmondi,23.742166,90.370549,223
+MRC-0945,Pharmacy & Healthcare,Gulshan,23.792052,90.404822,70
+MRC-0946,Grocery & Superstore,Amberkhana,24.905972,91.86284,180
+MRC-0947,Restaurant & Fast Food,Old Dhaka (Chawkbazar),23.718465,90.390803,237
+MRC-0948,Home Decor & Hardware,Dhanmondi,23.743342,90.374223,50
+MRC-0949,Pharmacy & Healthcare,Gulshan,23.788055,90.409554,159
+MRC-0950,Electronics & Gadgets,Banani,23.793501,90.40737,30
+MRC-0951,Pharmacy & Healthcare,Jatrabari,23.705707,90.432948,110
+MRC-0952,Grocery & Superstore,Jatrabari,23.709569,90.438558,107
+MRC-0953,Home Decor & Hardware,Mohammadpur,23.765956,90.360684,40
+MRC-0954,Grocery & Superstore,Gulshan,23.794635,90.413833,245
+MRC-0955,Grocery & Superstore,Dhanmondi,23.74724,90.366961,160
+MRC-0956,Telecom & Mobile Accessories,Jahaj Company More,25.744722,89.259086,103
+MRC-0957,Restaurant & Fast Food,Old Dhaka (Chawkbazar),23.713959,90.401275,162
+MRC-0958,Pharmacy & Healthcare,Jatrabari,23.717915,90.433643,159
+MRC-0959,Grocery & Superstore,Narayanganj Chasara,23.623266,90.497435,260
+MRC-0960,Restaurant & Fast Food,Old Dhaka (Chawkbazar),23.720443,90.398559,216
+MRC-0961,Restaurant & Fast Food,Mirpur,23.803357,90.365918,228
+MRC-0962,Pharmacy & Healthcare,Badda,23.777845,90.419899,119
+MRC-0963,Grocery & Superstore,Halishahar,22.348481,91.787682,260
+MRC-0964,Restaurant & Fast Food,Shibbari More,22.827133,89.54784,94
+MRC-0965,Restaurant & Fast Food,Motijheel C/A,23.737162,90.429677,193
+MRC-0966,Pharmacy & Healthcare,Farmgate,23.74793,90.382122,85
+MRC-0967,Electronics & Gadgets,Badda,23.776941,90.436944,30
+MRC-0968,Grocery & Superstore,Narayanganj Chasara,23.625882,90.500255,127
+MRC-0969,Fashion & Apparel,Nasirabad,22.369752,91.820158,95
+MRC-0970,Grocery & Superstore,Mirpur,23.802425,90.36683,160
+MRC-0971,Restaurant & Fast Food,GEC Circle,22.354099,91.824797,291
+MRC-0972,Home Decor & Hardware,Mohammadpur,23.766625,90.360154,27
+MRC-0973,Pharmacy & Healthcare,Banani,23.801466,90.410456,211
+MRC-0974,Grocery & Superstore,Old Dhaka (Chawkbazar),23.718682,90.401608,156
+MRC-0975,Pharmacy & Healthcare,GEC Circle,22.358689,91.827791,126
+MRC-0976,Restaurant & Fast Food,Badda,23.782256,90.42544,100
+MRC-0977,Telecom & Mobile Accessories,Old Dhaka (Chawkbazar),23.715604,90.400157,146
+MRC-0978,Pharmacy & Healthcare,Dhanmondi,23.744315,90.380871,121
+MRC-0979,Grocery & Superstore,Zindabazar,24.906,91.863329,218
+MRC-0980,Restaurant & Fast Food,Farmgate,23.7538,90.386279,158
+MRC-0981,Grocery & Superstore,Mirpur,23.807475,90.364907,54
+MRC-0982,Grocery & Superstore,Halishahar,22.350309,91.781565,120
+MRC-0983,Grocery & Superstore,Mohammadpur,23.770207,90.362676,72
+MRC-0984,Grocery & Superstore,Halishahar,22.344337,91.784984,244
+MRC-0985,Fashion & Apparel,Dhanmondi,23.756191,90.374407,61
+MRC-0986,Fashion & Apparel,Shaheb Bazar,24.36083,88.615376,31
+MRC-0987,Restaurant & Fast Food,Motijheel C/A,23.732425,90.412601,184
+MRC-0988,Grocery & Superstore,Agrabad C/A,22.31956,91.815492,120
+MRC-0989,Grocery & Superstore,Mirpur,23.807797,90.359545,301
+MRC-0990,Fashion & Apparel,Mirpur,23.807631,90.359158,39
+MRC-0991,Pharmacy & Healthcare,Motijheel C/A,23.735597,90.423578,118
+MRC-0992,Pharmacy & Healthcare,Uttara,23.876487,90.386891,123
+MRC-0993,Fashion & Apparel,Dhanmondi,23.739754,90.365656,90
+MRC-0994,Grocery & Superstore,Mohammadpur,23.769749,90.350717,114
+MRC-0995,Pharmacy & Healthcare,Dhanmondi,23.745776,90.384961,90
+MRC-0996,Restaurant & Fast Food,Gulshan,23.795108,90.406572,138
+MRC-0997,Pharmacy & Healthcare,Agrabad C/A,22.326661,91.817942,214
+MRC-0998,Home Decor & Hardware,Savar Bus Stand,23.854808,90.268219,31
+MRC-0999,Home Decor & Hardware,Motijheel C/A,23.733511,90.418392,71
+MRC-1000,Fashion & Apparel,Gulshan,23.791597,90.403764,57
