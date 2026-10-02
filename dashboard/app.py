@@ -23,6 +23,8 @@ import pandas as pd
 import streamlit as st
 import plotly.express as px
 import plotly.graph_objects as go
+import folium
+from streamlit_folium import st_folium
 
 # ─────────────────────────────────────────────────────────────────────────────
 # 1. PAGE CONFIGURATION & THEME STYLING
@@ -144,17 +146,20 @@ def load_datasets():
     for d in possible_dirs:
         a = d / "agents.csv"
         t = d / "transactions.csv"
-        if a.exists() and t.exists():
+        m = d / "merchants.csv"
+        if a.exists() and t.exists() and m.exists():
             agents_path = a
             txns_path = t
+            merchants_path = m
             break
 
-    if not agents_path or not txns_path:
-        st.error("Error: Could not locate 'data/agents.csv' and 'data/transactions.csv'.")
+    if not agents_path or not txns_path or not merchants_path:
+        st.error("Error: Could not locate 'data/agents.csv', 'data/transactions.csv', and 'data/merchants.csv'.")
         st.stop()
 
     agents_df = pd.read_csv(agents_path)
     txns_df = pd.read_csv(txns_path)
+    merchants_df = pd.read_csv(merchants_path)
 
     # Date and time parsing
     txns_df["timestamp"] = pd.to_datetime(txns_df["timestamp"])
@@ -162,10 +167,10 @@ def load_datasets():
     txns_df["hour"] = txns_df["timestamp"].dt.hour
     txns_df["day_name"] = txns_df["timestamp"].dt.day_name()
 
-    return agents_df, txns_df
+    return agents_df, txns_df, merchants_df
 
 
-agents_df, txns_df = load_datasets()
+agents_df, txns_df, merchants_df = load_datasets()
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -204,9 +209,11 @@ with st.sidebar:
     if area_choice != "All Areas":
         filtered_agents = agents_df[agents_df["area"] == area_choice].copy()
         filtered_txns = txns_df[txns_df["area"] == area_choice].copy()
+        filtered_merchants = merchants_df[merchants_df["area"] == area_choice].copy()
     else:
         filtered_agents = agents_df.copy()
         filtered_txns = txns_df.copy()
+        filtered_merchants = merchants_df.copy()
 
     st.markdown("<hr style='border-color:#21262d; margin: 20px 0;'>", unsafe_allow_html=True)
     st.markdown("""
@@ -425,6 +432,68 @@ elif selected_page == "Area Analysis":
     </div>
     """, unsafe_allow_html=True)
 
+    st.markdown("#### 🗺️ Interactive Liquidity & Merchant Map")
+    st.caption("Agent Cash Shortage Risk (Red = High Risk, Green = Safe) & Merchant Locations (Blue markers)")
+    
+    # Initialize Map
+    if not filtered_agents.empty:
+        center_lat = filtered_agents["latitude"].mean()
+        center_lon = filtered_agents["longitude"].mean()
+    else:
+        center_lat, center_lon = 23.8103, 90.4125 # Default Dhaka
+        
+    m = folium.Map(location=[center_lat, center_lon], zoom_start=12 if area_choice == "All Areas" else 14, tiles="CartoDB dark_matter")
+    
+    # Add Agent Markers
+    for _, row in filtered_agents.iterrows():
+        is_risk = row["cash_balance"] < 50000  # Threshold for risk
+        color = "#f85149" if is_risk else "#3fb950"  # Red / Green
+        status = "High Risk" if is_risk else "Safe"
+        action = "Rebalance Required" if is_risk else "Optimal"
+        
+        popup_html = f"""
+        <div style="font-family:sans-serif;font-size:12px;">
+            <b>Agent:</b> {row['agent_id']}<br>
+            <b>Area:</b> {row['area']}<br>
+            <b>Cash Balance:</b> ৳{row['cash_balance']:,.0f}<br>
+            <b>Risk Score:</b> {status}<br>
+            <b>Recommended Action:</b> {action}
+        </div>
+        """
+        
+        folium.CircleMarker(
+            location=[row["latitude"], row["longitude"]],
+            radius=6,
+            popup=folium.Popup(popup_html, max_width=250),
+            color=color,
+            fill=True,
+            fill_color=color,
+            fill_opacity=0.8,
+            tooltip=f"Agent: {row['agent_id']} ({status})"
+        ).add_to(m)
+        
+    # Add Merchant Markers
+    for _, row in filtered_merchants.iterrows():
+        popup_html = f"""
+        <div style="font-family:sans-serif;font-size:12px;">
+            <b>Merchant:</b> {row['merchant_id']}<br>
+            <b>Category:</b> {row['category']}<br>
+            <b>Area:</b> {row['area']}<br>
+            <b>Daily Txns:</b> {row['daily_transactions']}
+        </div>
+        """
+        
+        folium.Marker(
+            location=[row["latitude"], row["longitude"]],
+            icon=folium.Icon(color="blue", icon="shopping-cart", prefix="fa"),
+            popup=folium.Popup(popup_html, max_width=250),
+            tooltip=f"Merchant: {row['merchant_id']}"
+        ).add_to(m)
+        
+    st_folium(m, width="100%", height=500, returned_objects=[])
+    
+    st.markdown("<br>", unsafe_allow_html=True)
+    
     # 1. Cash-Out Demand by Area
     st.markdown("#### 💰 Cash-Out Demand by Commercial Area")
 
