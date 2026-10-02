@@ -25,6 +25,7 @@ merchant_agent = MerchantGrowthAgent()
 # --- Response Models ---
 class QueryRequest(BaseModel):
     query: str
+    lang: Optional[str] = "en"
 
 class QueryResponse(BaseModel):
     response: str
@@ -67,7 +68,7 @@ def ask_orchestrator(request: QueryRequest):
     Routes intelligently to Risk, Customer, or Merchant agents.
     """
     try:
-        response_text = orchestrator.handle_query(request.query)
+        response_text = orchestrator.handle_query(request.query, lang=request.lang)
         return QueryResponse(response=response_text, status="success")
     except Exception as e:
         return QueryResponse(response=str(e), status="error")

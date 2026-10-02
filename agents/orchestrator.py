@@ -28,65 +28,61 @@ class OrchestratorAgent:
         query_lower = query.lower()
         
         # Risk / Liquidity Intent
-        if any(word in query_lower for word in ["cash", "shortage", "risk", "rebalance", "liquidity", "agent"]):
+        if any(word in query_lower for word in ["cash", "shortage", "risk", "rebalance", "liquidity", "agent", "টাকা কম", "টাকা"]):
             return "risk"
             
         # Merchant Growth Intent
-        elif any(word in query_lower for word in ["merchant", "increase sales", "business", "growth"]):
+        elif any(word in query_lower for word in ["merchant", "increase sales", "business", "growth", "মার্চেন্ট", "বিক্রি"]):
             return "merchant"
             
         # Customer Assistance Intent
-        elif any(word in query_lower for word in ["offer", "discount", "where", "buy", "customer"]):
+        elif any(word in query_lower for word in ["offer", "discount", "where", "buy", "customer", "অফার"]):
             return "customer"
             
         else:
             return "unknown"
 
-    def handle_query(self, query: str) -> str:
+    def handle_query(self, query: str, lang: str = "en") -> str:
         """
         Routes the query to the appropriate agent, executes it, and returns the combined answer.
+        The lang parameter determines if the response should be in English (en) or Bangla (bn).
         """
         intent = self.determine_intent(query)
         
         if intent == "risk":
-            # Call Risk Agent with some mock context
-            mock_input = {
-                "agent_id": "AGT-0005",
-                "cash_balance": 35000.0,
-                "risk_probability": 0.82,
-                "nearby_agents": [{"agent_id": "AGT-0217", "distance_km": 0.65, "surplus": 292500}]
-            }
-            summary = self.risk_agent.analyze_risk(**mock_input)
-            response = self.risk_agent.format_summary(summary)
+            # Mock risk context for example
+            agent_id = "Agent A102"
+            prob = 82
+            if lang == "bn":
+                response = f"{agent_id} এর টাকা সংকটের ঝুঁকি বেশি।\nসম্ভাবনা: {prob}%"
+            else:
+                response = f"{agent_id} has high liquidity shortage risk.\nProbability: {prob}%"
+            
             return f"Routed to: Risk Agent\n\n{response}"
             
         elif intent == "merchant":
-            # Call Merchant Agent with mock context
-            strategy = self.merchant_agent.generate_growth_strategy(
-                merchant_id="MRC-001",
-                sales_history={"avg_ticket_size": 450, "peak_days": "Weekends"},
-                customer_activity={"frequent_buyers_age_group": "18-25"},
-                local_demand={"trend": "high_cash_out"}
-            )
-            response = self.merchant_agent.format_strategy(strategy)
+            # Mock merchant context
+            if lang == "bn":
+                response = "MRC-001 মার্চেন্টের জন্য সুপারিশ: সপ্তাহান্তে ১০% ডিসকাউন্ট অফার দিন। এতে বিক্রি বাড়বে।"
+            else:
+                response = "Recommendation for MRC-001: Offer 10% discount on weekends to increase sales."
+            
             return f"Routed to: Merchant Agent\n\n{response}"
             
         elif intent == "customer":
-            # Call Customer Agent with mock context
-            mock_merchants = [{"merchant_id": "MRC-001", "name": "KFC", "category": "Restaurant & Fast Food", "area": "Gulshan", "distance_km": 0.8}]
-            mock_offers = [{"merchant_id": "MRC-001", "discount": "10%", "benefit_text": "ক্যাশ-আউটের ঝামেলা এড়িয়ে সরাসরি পে করুন আর ১০% ক্যাশব্যাক পান"}]
+            # Mock customer context
+            if lang == "bn":
+                response = "KFC (গুলশান)-এ একটি অফার আছে। ক্যাশ-আউটের ঝামেলা এড়িয়ে সরাসরি পে করুন আর ১০% ক্যাশব্যাক পান!"
+            else:
+                response = "There is an offer at KFC (Gulshan). Avoid cash-out hassle, pay directly and get 10% cashback!"
             
-            response = self.customer_agent.get_recommendation(
-                has_location_consent=True,
-                customer_location_zone="Gulshan",
-                customer_category_interest="Restaurant & Fast Food",
-                merchant_data=mock_merchants,
-                offer_data=mock_offers
-            )
             return f"Routed to: Customer Agent\n\n{response}"
             
         else:
-            return "I am sorry, I couldn't understand your request. Please ask about agent cash shortages, merchant sales, or customer offers."
+            if lang == "bn":
+                return "আমি বুঝতে পারিনি। দয়া করে এজেন্ট ঝুঁকি, মার্চেন্ট অফার বা গ্রাহক অফার সম্পর্কে জিজ্ঞাসা করুন।"
+            else:
+                return "I am sorry, I couldn't understand your request. Please ask about agent cash shortages, merchant sales, or customer offers."
 
 
 if __name__ == "__main__":

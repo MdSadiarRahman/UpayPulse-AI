@@ -30,6 +30,7 @@ import sys
 import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from agents.orchestrator import OrchestratorAgent
+from i18n import get_text
 
 # ─────────────────────────────────────────────────────────────────────────────
 # 1. PAGE CONFIGURATION & THEME STYLING
@@ -195,10 +196,24 @@ with st.sidebar:
     <hr style='border-color:#21262d; margin: 12px 0 18px 0;'>
     """, unsafe_allow_html=True)
 
-    st.markdown("### 📑 Navigation")
+    # Set default language
+    if "lang" not in st.session_state:
+        st.session_state.lang = "en"
+        
+    st.markdown("### 🌐 Language / ভাষা")
+    lang_choice = st.radio("Language", ["English", "বাংলা"], index=0 if st.session_state.lang == "en" else 1, horizontal=True, label_visibility="collapsed")
+    if lang_choice == "English" and st.session_state.lang != "en":
+        st.session_state.lang = "en"
+        st.rerun()
+    elif lang_choice == "বাংলা" and st.session_state.lang != "bn":
+        st.session_state.lang = "bn"
+        st.rerun()
+
+    st.markdown(f"### {get_text('nav_title')}")
+    page_options = [get_text('nav_overview'), get_text('nav_area_analysis'), get_text('nav_agent_status'), get_text('nav_ai_chatbot')]
     selected_page = st.radio(
         "Select Page",
-        ["Overview", "Area Analysis", "Agent Status", "AI Chatbot"],
+        page_options,
         index=0,
         label_visibility="collapsed"
     )
@@ -274,11 +289,11 @@ def create_density_map(df, lat_col, lon_col, z_col, title, height=450):
 # ─────────────────────────────────────────────────────────────────────────────
 # PAGE 1: OVERVIEW
 # ─────────────────────────────────────────────────────────────────────────────
-if selected_page == "Overview":
-    st.markdown("""
+if selected_page == get_text('nav_overview'):
+    st.markdown(f"""
     <div class="page-header">
-        <h2 class="page-title">📊 Executive Overview</h2>
-        <p class="page-subtitle">Key performance indicators, transacted volume metrics, and system-wide MFS health</p>
+        <h2 class="page-title">{get_text('overview_title')}</h2>
+        <p class="page-subtitle">{get_text('overview_subtitle')}</p>
     </div>
     """, unsafe_allow_html=True)
 
@@ -429,11 +444,11 @@ if selected_page == "Overview":
 # ─────────────────────────────────────────────────────────────────────────────
 # PAGE 2: AREA ANALYSIS
 # ─────────────────────────────────────────────────────────────────────────────
-elif selected_page == "Area Analysis":
-    st.markdown("""
+elif selected_page == get_text('nav_area_analysis'):
+    st.markdown(f"""
     <div class="page-header">
-        <h2 class="page-title">📍 Area Analysis</h2>
-        <p class="page-subtitle">Geographic cash-out demand concentrations and spatio-temporal transaction heatmaps</p>
+        <h2 class="page-title">{get_text('area_analysis_title')}</h2>
+        <p class="page-subtitle">{get_text('area_analysis_subtitle')}</p>
     </div>
     """, unsafe_allow_html=True)
 
@@ -588,11 +603,11 @@ elif selected_page == "Area Analysis":
 # ─────────────────────────────────────────────────────────────────────────────
 # PAGE 3: AGENT STATUS
 # ─────────────────────────────────────────────────────────────────────────────
-elif selected_page == "Agent Status":
-    st.markdown("""
+elif selected_page == get_text('nav_agent_status'):
+    st.markdown(f"""
     <div class="page-header">
-        <h2 class="page-title">👤 Agent Status & Operational Health</h2>
-        <p class="page-subtitle">Identifying liquidity-constrained agents and recognizing top transaction performers</p>
+        <h2 class="page-title">{get_text('agent_status_title')}</h2>
+        <p class="page-subtitle">{get_text('agent_status_subtitle')}</p>
     </div>
     """, unsafe_allow_html=True)
 
@@ -717,11 +732,11 @@ elif selected_page == "Agent Status":
     st.dataframe(table_highest, use_container_width=True, hide_index=True)
 
     st.markdown("<br><hr style='border-color:#21262d;'><br>", unsafe_allow_html=True)
-    st.markdown("#### 🤖 Deep AI Agent Risk Analysis")
-    st.write("Use the FastAPI backend to fetch real-time liquidity risk predictions & AI explanations.")
+    st.markdown(f"{get_text('ai_risk_analysis')}")
+    st.write(f"{get_text('ai_risk_desc')}")
     
-    agent_id_to_check = st.selectbox("Select Agent for AI Analysis", options=agents_full["agent_id"].tolist())
-    if st.button("Run AI Risk Analysis"):
+    agent_id_to_check = st.selectbox(get_text('select_agent'), options=agents_full["agent_id"].tolist())
+    if st.button(get_text('run_ai_analysis')):
         with st.spinner("Analyzing with UpayPulse AI Backend and SHAP Explainer..."):
             try:
                 import requests
@@ -780,11 +795,11 @@ elif selected_page == "Agent Status":
 # ─────────────────────────────────────────────────────────────────────────────
 # PAGE 4: AI CHATBOT
 # ─────────────────────────────────────────────────────────────────────────────
-elif selected_page == "AI Chatbot":
-    st.markdown("""
+elif selected_page == get_text('nav_ai_chatbot'):
+    st.markdown(f"""
     <div class="page-header">
-        <h2 class="page-title">🤖 UpayPulse AI Assistant</h2>
-        <p class="page-subtitle">Ask questions about agent risk, merchant offers, and customer recommendations</p>
+        <h2 class="page-title">{get_text('chatbot_title')}</h2>
+        <p class="page-subtitle">{get_text('chatbot_subtitle')}</p>
     </div>
     """, unsafe_allow_html=True)
 
@@ -818,14 +833,14 @@ elif selected_page == "AI Chatbot":
             with st.spinner("Thinking..."):
                 try:
                     # Try hitting the FastAPI backend
-                    res = requests.post("http://localhost:8000/ask", json={"query": prompt}, timeout=10)
+                    res = requests.post("http://localhost:8000/ask", json={"query": prompt, "lang": st.session_state.lang}, timeout=10)
                     if res.status_code == 200:
                         response = res.json().get("response", "No response.")
                     else:
                         response = f"API Error: {res.status_code}"
                 except requests.exceptions.RequestException:
                     # Fallback to local orchestrator if backend is not running
-                    response = st.session_state.orchestrator.handle_query(prompt)
+                    response = st.session_state.orchestrator.handle_query(prompt, lang=st.session_state.lang)
                 
                 st.markdown(response)
         # Add assistant response to chat history
