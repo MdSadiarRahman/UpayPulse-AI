@@ -183,12 +183,52 @@ class LiquidityPredictor:
         if not reasons:
             reasons.append("Stable liquidity balance compared to historical demand")
             
+        # Calculate SHAP explainability
+        shap_reasons = []
+        try:
+            import shap
+            explainer = shap.TreeExplainer(self.model)
+            shap_values = explainer.shap_values(X)
+            
+            if isinstance(shap_values, list):
+                sv = shap_values[pred_class][0]
+            else:
+                sv = shap_values[0]
+                if len(sv.shape) > 1: # if multiclass in single array
+                    sv = sv[:, pred_class]
+                
+            total_impact = np.sum(np.abs(sv))
+            if total_impact > 0:
+                feature_names = {
+                    "current_cash_balance": "Current cash balance",
+                    "e_float_balance": "e-Float balance",
+                    "avg_hourly_cashout": "Avg hourly cash-out",
+                    "daily_txn_count": "Daily transactions",
+                    "peak_hour_vol": "Peak hour",
+                    "prev_cashout_trend": "Cash-out demand"
+                }
+                
+                impacts = []
+                for i, val in enumerate(sv):
+                    pct = (abs(val) / total_impact) * 100
+                    if pct >= 5: 
+                        fname = feature_names.get(self.feature_cols[i], self.feature_cols[i])
+                        sign = "+" if val > 0 else "-"
+                        impacts.append((fname, pct, sign))
+                        
+                impacts.sort(key=lambda x: x[1], reverse=True)
+                for imp in impacts[:4]: # top 4 features
+                    shap_reasons.append(f"{imp[0]}: {imp[2]}{int(imp[1])}%")
+        except Exception as e:
+            pass
+
         return {
             "agent_id": agent_id,
             "risk_level": risk_level,
             "risk_probability": round(risk_probability, 2),
             "expected_shortage_amount": round(expected_shortage, 2),
-            "main_reasons": reasons
+            "main_reasons": reasons,
+            "shap_reasons": shap_reasons
         }
 
 if __name__ == "__main__":

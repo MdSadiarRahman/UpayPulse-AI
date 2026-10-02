@@ -755,36 +755,14 @@ elif selected_page == get_text('nav_agent_status'):
                     # 2. Run SHAP Explainability
                     with col2:
                         st.markdown("##### 🔬 Model Explainability (SHAP)")
-                        from ml_explainability import RiskPredictorWithSHAP
+                        st.markdown("**Why risk is high? Feature impact:**")
                         
-                        # Find the agent index in the dataframe
-                        agent_idx = agents_full[agents_full['agent_id'] == agent_id_to_check].index[0]
-                        
-                        # Initialize and train SHAP explainer
-                        shap_explainer = RiskPredictorWithSHAP()
-                        X, shap_values, base_value = shap_explainer.train_and_explain(agents_full)
-                        
-                        # Get feature impacts for the specific agent
-                        impact_df = shap_explainer.get_agent_explanation(X, shap_values, agent_idx)
-                        
-                        # Plotly Bar Chart for SHAP values
-                        fig_shap = px.bar(
-                            impact_df, 
-                            x="SHAP_Value", 
-                            y="Feature", 
-                            orientation='h',
-                            color="SHAP_Value",
-                            color_continuous_scale=px.colors.diverging.RdBu_r,
-                            title="Top Features Influencing Risk"
-                        )
-                        fig_shap.update_layout(
-                            template="plotly_dark",
-                            paper_bgcolor="rgba(0,0,0,0)",
-                            plot_bgcolor="rgba(0,0,0,0)",
-                            margin=dict(l=20, r=20, t=40, b=20),
-                            yaxis={'categoryorder':'total ascending'}
-                        )
-                        st.plotly_chart(fig_shap, use_container_width=True)
+                        shap_reasons = risk_data.get("shap_reasons", [])
+                        if shap_reasons:
+                            for reason in shap_reasons:
+                                st.markdown(f"**- {reason}**")
+                        else:
+                            st.info("No explainability data available for this prediction.")
                 else:
                     st.error(f"Backend API Error: {res.status_code}")
             except Exception as e:

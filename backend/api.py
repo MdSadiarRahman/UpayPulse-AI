@@ -36,6 +36,7 @@ class AgentRiskResponse(BaseModel):
     risk_score: float
     shortage_prediction: float
     explanation: dict
+    shap_reasons: Optional[List[str]] = []
 
 class NearbyAgentRecommendation(BaseModel):
     partner_id: str
@@ -73,31 +74,30 @@ def ask_orchestrator(request: QueryRequest):
     except Exception as e:
         return QueryResponse(response=str(e), status="error")
 
+from src.liquidity_predictor import LiquidityPredictor
+liquidity_predictor = LiquidityPredictor()
+
 @app.get("/agent-risk/{agent_id}", response_model=AgentRiskResponse)
 def get_agent_risk(agent_id: str):
     """
     1. Liquidity prediction model & Risk Agent
     Returns risk score, shortage prediction, and AI explanation.
     """
-    # Mocking Database / ML Output Retrieval
-    mock_cash = 35000.0
-    mock_risk_prob = 0.82
-    mock_shortage = 15000.0
-    
-    # Call Risk Agent to generate explanation
-    summary = risk_agent.analyze_risk(
-        agent_id=agent_id,
-        cash_balance=mock_cash,
-        risk_probability=mock_risk_prob,
-        nearby_agents=[]
-    )
-    
-    return AgentRiskResponse(
-        agent_id=agent_id,
-        risk_score=mock_risk_prob,
-        shortage_prediction=mock_shortage,
-        explanation=summary["analysis"]
-    )
+    try:
+        # Use real ML Model
+        ml_res = liquidity_predictor.predict_risk(agent_id)
+        if "error" in ml_res:
+            raise HTTPException(status_code=404, detail=ml_res["error"])
+            
+        return AgentRiskResponse(
+            agent_id=ml_res["agent_id"],
+            risk_score=ml_res["risk_probability"],
+            shortage_prediction=ml_res["expected_shortage_amount"],
+            explanation={"analysis": " | ".join(ml_res["main_reasons"])},
+            shap_reasons=ml_res.get("shap_reasons", [])
+        )
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/nearby-agents/{agent_id}", response_model=NearbyAgentsResponse)
 def get_nearby_agents(agent_id: str):
