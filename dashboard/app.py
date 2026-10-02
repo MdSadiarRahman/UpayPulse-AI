@@ -773,18 +773,18 @@ elif selected_page == get_text('nav_agent_status'):
 # ─────────────────────────────────────────────────────────────────────────────
 # PAGE 4: AI LIQUIDITY RADAR
 # ─────────────────────────────────────────────────────────────────────────────
-elif selected_page == "AI Liquidity Radar":
-    st.markdown("""
+elif selected_page == get_text('nav_ai_liquidity_radar'):
+    st.markdown(f"""
     <div class="page-header">
-        <h2 class="page-title">🎯 AI Liquidity Radar</h2>
-        <p class="page-subtitle">Predict real-time agent cash shortage risks using Advanced Machine Learning</p>
+        <h2 class="page-title">🎯 {get_text('nav_ai_liquidity_radar')}</h2>
+        <p class="page-subtitle">{get_text('ai_liquidity_radar_subtitle')}</p>
     </div>
     """, unsafe_allow_html=True)
 
-    agent_id = st.selectbox("Select Agent ID", options=agents_df["agent_id"].tolist(), key="radar_agent")
+    agent_id = st.selectbox(get_text('radar_select_agent'), options=agents_df["agent_id"].tolist(), key="radar_agent")
 
-    if st.button("Run Liquidity Prediction"):
-        with st.spinner("Analyzing Risk with UpayPulse AI Backend..."):
+    if st.button(get_text('radar_run_prediction')):
+        with st.spinner(get_text('radar_analyzing')):
             import requests
             try:
                 res = requests.get(f"http://localhost:8000/agent-risk/{agent_id}", timeout=10)
@@ -802,29 +802,29 @@ elif selected_page == "AI Liquidity Radar":
                     if shap_reasons:
                         shap_html = "<ul>" + "".join(f'<li>{r}</li>' for r in shap_reasons) + "</ul>"
                     else:
-                        shap_html = "<i>No SHAP explainability available.</i>"
+                        shap_html = f"<i>{get_text('radar_no_shap')}</i>"
                     
                     st.markdown(f"""
                     <div style="background: linear-gradient(135deg, rgba(22, 27, 34, 0.95) 0%, rgba(13, 17, 23, 0.95) 100%);
                                 border: 1px solid #30363d; border-radius: 12px; padding: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.35);">
-                        <h3 style="margin-top: 0; color: #58a6ff;">Agent: {agent_id}</h3>
+                        <h3 style="margin-top: 0; color: #58a6ff;">{get_text('radar_agent_label')}: {agent_id}</h3>
                         <hr style="border-color:#30363d;">
                         
                         <div style="display: flex; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap;">
                             <div style="min-width: 150px; margin-bottom: 10px;">
-                                <div style="color: #8b949e; font-size: 0.85rem; text-transform: uppercase;">Current Cash</div>
+                                <div style="color: #8b949e; font-size: 0.85rem; text-transform: uppercase;">{get_text('radar_current_cash')}</div>
                                 <div style="font-size: 1.5rem; font-weight: bold;">৳{agent_data['cash_balance']:,.0f}</div>
                             </div>
                             <div style="min-width: 150px; margin-bottom: 10px;">
-                                <div style="color: #8b949e; font-size: 0.85rem; text-transform: uppercase;">Risk Level</div>
+                                <div style="color: #8b949e; font-size: 0.85rem; text-transform: uppercase;">{get_text('radar_risk_level')}</div>
                                 <div style="font-size: 1.5rem; font-weight: bold; color: {risk_color};">{risk_res['risk_level']}</div>
                             </div>
                             <div style="min-width: 150px; margin-bottom: 10px;">
-                                <div style="color: #8b949e; font-size: 0.85rem; text-transform: uppercase;">Probability</div>
+                                <div style="color: #8b949e; font-size: 0.85rem; text-transform: uppercase;">{get_text('radar_probability')}</div>
                                 <div style="font-size: 1.5rem; font-weight: bold; color: {risk_color};">{risk_res['risk_score']*100:.1f}%</div>
                             </div>
                             <div style="min-width: 150px; margin-bottom: 10px;">
-                                <div style="color: #8b949e; font-size: 0.85rem; text-transform: uppercase;">Expected Shortage</div>
+                                <div style="color: #8b949e; font-size: 0.85rem; text-transform: uppercase;">{get_text('radar_expected_shortage')}</div>
                                 <div style="font-size: 1.5rem; font-weight: bold; color: #f85149;">৳{risk_res['shortage_prediction']:,.0f}</div>
                             </div>
                         </div>
@@ -832,13 +832,13 @@ elif selected_page == "AI Liquidity Radar":
                         <hr style="border-color:#30363d;">
                         <div style="display: flex; gap: 20px;">
                             <div style="flex: 1;">
-                                <div style="color: #8b949e; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 8px;">Main Reasons</div>
+                                <div style="color: #8b949e; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 8px;">{get_text('radar_main_reasons')}</div>
                                 <ul style="margin: 0; padding-left: 20px; line-height: 1.6;">
                                     {reasons_html}
                                 </ul>
                             </div>
                             <div style="flex: 1;">
-                                <div style="color: #8b949e; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 8px;">SHAP Feature Explanation (Why risk is high?)</div>
+                                <div style="color: #8b949e; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 8px;">{get_text('radar_shap_explanation')}</div>
                                 {shap_html}
                             </div>
                         </div>
@@ -846,7 +846,7 @@ elif selected_page == "AI Liquidity Radar":
                     """, unsafe_allow_html=True)
                     
                     st.markdown("<br>", unsafe_allow_html=True)
-                    st.markdown("### 🤝 Recommended Liquidity Partners")
+                    st.markdown(f"### 🤝 {get_text('radar_recommended_partners')}")
                     
                     partners_res = requests.get(f"http://localhost:8000/liquidity-partners/{agent_id}", timeout=10)
                     if partners_res.status_code == 200:
@@ -855,33 +855,33 @@ elif selected_page == "AI Liquidity Radar":
                             df_recs = pd.DataFrame(recs)
                             # Rename columns for display
                             df_display = df_recs.rename(columns={
-                                "partner_id": "Partner Agent ID",
-                                "score": "Partner Score",
-                                "distance_km": "Distance (km)",
-                                "available_liquidity": "Available Cash (৳)",
-                                "rating": "Reliability (Out of 5)",
-                                "explanation": "Recommendation Reason"
+                                "partner_id": get_text('radar_partner_agent_id'),
+                                "score": get_text('radar_partner_score'),
+                                "distance_km": get_text('radar_distance'),
+                                "available_liquidity": get_text('radar_available_cash'),
+                                "rating": get_text('radar_reliability'),
+                                "explanation": get_text('radar_recommendation_reason')
                             })
                             # Keep only the requested columns
-                            df_display = df_display[["Partner Agent ID", "Partner Score", "Distance (km)", "Available Cash (৳)", "Reliability (Out of 5)", "Recommendation Reason"]]
+                            df_display = df_display[[get_text('radar_partner_agent_id'), get_text('radar_partner_score'), get_text('radar_distance'), get_text('radar_available_cash'), get_text('radar_reliability'), get_text('radar_recommendation_reason')]]
                             st.dataframe(df_display, use_container_width=True, hide_index=True)
                             
                             best_partner = recs[0]["partner_id"]
                             st.markdown(f"""
                             <div style="background: rgba(88, 166, 255, 0.1); border-left: 4px solid #58a6ff; padding: 16px; border-radius: 4px; margin-top: 10px;">
-                                <div style="color: #58a6ff; font-weight: bold; font-size: 1.1rem; margin-bottom: 4px;">Recommended Action:</div>
-                                Request liquidity support from {best_partner}
+                                <div style="color: #58a6ff; font-weight: bold; font-size: 1.1rem; margin-bottom: 4px;">{get_text('radar_recommended_action')}</div>
+                                {get_text('radar_request_support')} {best_partner}
                             </div>
                             """, unsafe_allow_html=True)
                         else:
-                            st.info("No nearby partners found with sufficient liquidity.")
+                            st.info(get_text('radar_no_partners'))
                     else:
-                        st.error(f"Failed to fetch liquidity partners. API Status: {partners_res.status_code}")
+                        st.error(f"{get_text('radar_failed_fetch')} {partners_res.status_code}")
                         
                 else:
-                    st.error(f"Backend API Error: {res.status_code}")
+                    st.error(f"{get_text('radar_backend_error')} {res.status_code}")
             except Exception as e:
-                st.error(f"Failed to connect to API: {str(e)}")
+                st.error(f"{get_text('radar_connection_failed')} {str(e)}")
 
 
 # ─────────────────────────────────────────────────────────────────────────────
