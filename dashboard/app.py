@@ -777,7 +777,7 @@ elif active_page_key == "area_analysis":
             tooltip=f"Merchant: {row['merchant_id']} ({row['category']})"
         ).add_to(m)
 
-    st_folium(m, width="100%", height=500, returned_objects=[])
+    st_folium(m, width=700, height=500, use_container_width=True, returned_objects=[])
 
     st.markdown("<br>", unsafe_allow_html=True)
 
@@ -1116,7 +1116,7 @@ elif active_page_key == "agent_status":
 # ─────────────────────────────────────────────────────────────────────────────
 # PAGE 4: 🎯 AI LIQUIDITY RADAR (MISSION CONTROL)
 # ─────────────────────────────────────────────────────────────────────────────
-elif selected_page == get_text('nav_ai_liquidity_radar'):
+elif active_page_key == "liquidity_radar":
     st.markdown(f"""
     <div class="page-header">
         <h2 class="page-title">🎯 {get_text('nav_ai_liquidity_radar')}</h2>

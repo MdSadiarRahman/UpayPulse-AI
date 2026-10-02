@@ -91,7 +91,8 @@ class MerchantGrowthAgent:
 
 if __name__ == "__main__":
     import sys
-    sys.stdout.reconfigure(encoding='utf-8')
+    if hasattr(sys.stdout, 'reconfigure'):
+        sys.stdout.reconfigure(encoding='utf-8')
     
     # Test the Agent
     merchant_agent = MerchantGrowthAgent()
